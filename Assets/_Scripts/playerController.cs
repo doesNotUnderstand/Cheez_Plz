@@ -62,8 +62,8 @@ public class playerController : MonoBehaviour {
                 moveCharacterDown();
             }
 
-            // Hold the Ctrl key to crouch and walk silently
-            if (Input.GetKey(KeyCode.LeftControl))
+            // Hold the Left shift or space key to crouch and walk silently
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space))
             {
                 isCrouching = true;
                 speed = 0.75f * originalSpeed;
@@ -74,16 +74,17 @@ public class playerController : MonoBehaviour {
             }
 
             // Hold the mouse left button to carry the cheese
-            if (Input.GetKey(KeyCode.Mouse0) && cheeseScript.getCheeseRange() && !playerInsidePipe)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                playerCarryCheese();
-                isCarryingCheese = true;
-                speed = 0.75f * originalSpeed;
+                if (!isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
+                { 
+                    isCarryingCheese = true;
+                    speed = 0.75f * originalSpeed;
+                }
+                else if(isCarryingCheese)
+                    isCarryingCheese = false;           
             }
-            else
-            {
-                isCarryingCheese = false;
-            }
+            playerCarryCheese();
 
             // Return player to normal speed if not crouching or holding cheese
             if (!isCrouching && !isCarryingCheese)
@@ -146,7 +147,10 @@ public class playerController : MonoBehaviour {
     // This function sets the character to hold the cheese
     void  playerCarryCheese()
     {
-        cheeseScript.transform.position = playerTransform.transform.position;
+        if (isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
+            cheeseScript.transform.position = playerTransform.transform.position;
+        else
+            isCarryingCheese = false;
     }
 
     // These functions moves the character and sets the boolean to be used

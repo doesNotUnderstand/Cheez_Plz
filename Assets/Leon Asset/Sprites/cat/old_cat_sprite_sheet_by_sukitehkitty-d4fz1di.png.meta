@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 96e6bf031e36e69448dbb4b79b3fcc50
+timeCreated: 1445150990
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_0
+    21300002: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_1
+    21300004: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_2
+    21300006: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_3
+    21300008: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_4
+    21300010: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_5
+    21300012: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_6
+    21300014: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_7
+    21300016: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_8
+    21300018: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_9
+    21300020: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_10
+    21300022: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_11
+    21300024: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_12
+    21300026: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_13
+    21300028: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_14
+    21300030: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_15
+    21300032: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_16
+    21300034: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_17
+    21300036: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_18
+    21300038: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_19
+    21300040: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_20
+    21300042: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_21
+    21300044: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_22
+    21300046: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_23
+    21300048: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_24
+    21300050: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_25
+    21300052: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_26
+    21300054: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_27
+    21300056: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_28
+    21300058: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_29
+    21300060: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_30
+    21300062: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_31
+    21300064: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_32
+    21300066: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_33
+    21300068: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_34
+    21300070: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_35
+    21300072: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_36
+    21300074: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_37
+    21300076: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_38
+    21300078: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_39
+    21300080: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_40
+    21300082: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_41
+    21300084: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_42
+    21300086: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_43
+    21300088: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_44
+    21300090: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_45
+    21300092: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_46
+    21300094: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 154
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 155
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 155
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 154
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 153
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 154
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_6
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 154
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 153
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 127
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 127
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 127
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_11
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 127
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_12
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 126
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_13
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 126
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_14
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 126
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 126
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 99
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 99
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_18
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 99
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 99
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_20
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 98
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_21
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 98
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_22
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 98
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_23
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 98
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 63
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_25
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 64
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_26
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 64
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_27
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 63
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_28
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 62
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_29
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 63
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_30
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 63
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_31
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 62
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_32
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 36
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_33
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 36
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_34
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 36
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_35
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 36
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_36
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 35
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_37
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 35
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_38
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 35
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_39
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 35
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_40
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_41
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 8
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_42
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 8
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_43
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 8
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_44
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 7
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_45
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 7
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_46
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 7
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: old_cat_sprite_sheet_by_sukitehkitty-d4fz1di_47
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 7
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

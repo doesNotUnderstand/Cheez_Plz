@@ -10,8 +10,8 @@ public class FollowPlayer : MonoBehaviour {
     // rotating when the character does
 	void Update () 
     {
-        transform.position = new Vector3(player.position.x,
-                                         player.position.y,
-                                         player.position.z - distance);
+            transform.position = new Vector3(player.position.x,
+                                             player.position.y,
+                                             player.position.z - distance);
 	}
 }

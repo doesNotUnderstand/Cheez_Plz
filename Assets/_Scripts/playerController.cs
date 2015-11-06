@@ -3,19 +3,27 @@ using System.Collections;
 
 public class playerController : MonoBehaviour {
 
-    // Be sure to freeze Z Contraint on Rigidbody 2D!!
+    //Public Numbers
     public float originalSpeed;
-    float speed;
+    public Texture textureKey;
     public Animator anim;
-    public cheeseCollider cheeseScript;
     public EventText textBox;
+
+    //Public Scripts
+    public cheeseCollider cheeseScript;
+    public mainCameraScript MainCamera;
+
     Transform playerTransform;
+    float speed;
     bool canMove; // Enable/Disable player movement
     bool playerInsidePipe; // To prevent the player from carrying cheese through pipe
     bool isCarryingCheese; // To check for cheese when player goes through pipe
     bool playerHasKey;
     bool playerDied;
     bool isCrouching;
+
+    //Drawing
+    DrawScreen keyDraw;
 
     // For decoupling the player movement - Other scripts can move the character if needed
     bool playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
@@ -29,6 +37,7 @@ public class playerController : MonoBehaviour {
         playerHasKey = false; // Initially the player doesn't possess the key
         speed = originalSpeed;
         textBox.changeTimedText("Ham ham~", 10.0f);
+        keyDraw = null;
     }
 
     void FixedUpdate()
@@ -92,7 +101,18 @@ public class playerController : MonoBehaviour {
                 speed = originalSpeed;
             }
         }
-        
+
+        //Draw Key 
+        if (getKeyState() && keyDraw == null)
+        {
+            keyDraw = new DrawScreen("key1", textureKey,30,false);
+            MainCamera.addDrawingToScreen(keyDraw);
+        }
+        else if (!getKeyState() && keyDraw != null) {
+            MainCamera.deleteDrawingOfScreen(keyDraw);
+            keyDraw = null;
+        }
+
         handlePlayerAnimations();
     }
 
@@ -130,6 +150,10 @@ public class playerController : MonoBehaviour {
     public void playerKeyState(bool key)
     {
         playerHasKey = key;
+    }
+
+    public bool getKeyState() {
+        return playerHasKey;
     }
 
     // Sets whether the player died or not

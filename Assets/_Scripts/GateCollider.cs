@@ -11,6 +11,7 @@ public class GateCollider : MonoBehaviour {
         if(other.name == "Mouse" && playerScript.playerHasGateKey())
         {
             // Open the Gate
+            playerScript.playerKeyState(false);
             Destroy(gateObject);
         }
         else

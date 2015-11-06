@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Clock
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,16 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1685627425
+    locked: 0
+  - name: Clock
+    uniqueID: 25815821
+    locked: 0
+  - name: Mouse
+    uniqueID: 1327331365
+    locked: 0
+  - name: ActiveCat
+    uniqueID: 2195006769
+    locked: 0
+  - name: SleepingCat
+    uniqueID: 887015327
     locked: 0

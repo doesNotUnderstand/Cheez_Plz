@@ -1180,6 +1180,26 @@ Prefab:
       propertyPath: orthographic size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2021590, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021590, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: .349999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021590, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021590, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021590, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: .280000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7baaa23e7661b4e049e3159ce8b7be41, type: 2}
   m_IsPrefabParent: 0

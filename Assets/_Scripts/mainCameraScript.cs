@@ -9,13 +9,16 @@ public class DrawScreen{
     private Texture myTexture;
     private int widthTexture;
     private string name;
-    private bool isLeft;
+    private bool isLeft,hasTimer;
+    private double time;
 
-    public DrawScreen(string name, Texture myTex, int width,bool isLeft) {
+    public DrawScreen(string name, Texture myTex, int width,bool isLeftSideOfScreen,bool hasTimer = false, double time = 3) {
         this.myTexture = myTex;
         this.widthTexture = width;
         this.name = name;
-        this.isLeft = isLeft;
+        this.isLeft = isLeftSideOfScreen;
+        this.time = time;
+        this.hasTimer = hasTimer;
     }
 
     public Texture getMyTexture(){
@@ -29,6 +32,21 @@ public class DrawScreen{
     }
     public bool getIsLeft(){
         return this.isLeft;
+    }
+
+    public double getTimeLeft() {
+        return this.time;
+    }
+
+    public void consumeTime(double addtime) {
+        time -= addtime;
+    }
+
+    public bool isAlive() {
+        if (hasTimer)
+            if (time <= 0)
+                return false;
+        return true;
     }
 }
 
@@ -51,9 +69,8 @@ public class mainCameraScript : MonoBehaviour {
     private List<DrawScreen> textureScreen;
     private double levelTime;
     private bool updateTime;
-    private string elapsedTime;
     private int numberItem_Left, numberItem_Right, numberItem_Timer, sumWidth_Right, sumWidth_Left, sumWidth_Timer;
-    private string firstTimer, secondTimer, thirdTimer, fourTimer;  
+    private string firstDigitTimer, secondDigitTimer, thirdDigitTimer, fourDigitTimer;  
     private Vector3 startPoint;
 
 
@@ -71,21 +88,19 @@ public class mainCameraScript : MonoBehaviour {
             levelTime += Time.deltaTime;
 
             string minutes = Mathf.Floor((float)levelTime / 60).ToString("00");
-            firstTimer = minutes.Substring(0, 1);
-            secondTimer = minutes.Substring(1, 1);
+            firstDigitTimer = minutes.Substring(0, 1);
+            secondDigitTimer = minutes.Substring(1, 1);
 
             string seconds = (levelTime % 60).ToString("00");
-            thirdTimer = seconds.Substring(0, 1);
-            fourTimer = seconds.Substring(1, 1);
+            thirdDigitTimer = seconds.Substring(0, 1);
+            fourDigitTimer = seconds.Substring(1, 1);
 
             if (seconds.Equals("60")) {
-                thirdTimer = "0";
+                thirdDigitTimer = "0";
                 minutes = (Int32.Parse(minutes) + 1).ToString("00");
-                firstTimer = minutes.Substring(0, 1);
-                secondTimer = minutes.Substring(1, 1);
+                firstDigitTimer = minutes.Substring(0, 1);
+                secondDigitTimer = minutes.Substring(1, 1);
             }
-
-            elapsedTime = minutes + ":" + seconds;
         }
         
     }
@@ -97,22 +112,28 @@ public class mainCameraScript : MonoBehaviour {
         //Draw Time 
         numberItem_Timer = 0; sumWidth_Timer = 0;
 
-        drawTimer(firstTimer, numberTimer, sizeItem, gapItems, sizeItem);
-        drawTimer(secondTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(firstDigitTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(secondDigitTimer, numberTimer, sizeItem, gapItems, sizeItem);
         drawTimer("doublePoint", numberTimer, sizeItem, gapItems, sizeItem);
-        drawTimer(thirdTimer, numberTimer, sizeItem, gapItems, sizeItem);
-        drawTimer(fourTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(thirdDigitTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(fourDigitTimer, numberTimer, sizeItem, gapItems, sizeItem);
         
 
         //Draw items on Screen (More than One) 
         numberItem_Left = 0; numberItem_Right = 0; sumWidth_Right = 0; sumWidth_Left = 0;
         foreach (DrawScreen auxObject in textureScreen) {
-            if (auxObject.getIsLeft())
-                drawTexture_left(auxObject,gapItems,sizeItem);
-            else 
-                drawTexture_right(auxObject, gapItems, sizeItem);       
-        }
-        
+            if (auxObject.isAlive())
+            {
+                if (auxObject.getIsLeft())
+                    drawTexture_left(auxObject, gapItems, sizeItem);
+                else
+                    drawTexture_right(auxObject, gapItems, sizeItem);
+
+                auxObject.consumeTime(Time.deltaTime);
+            }
+            else
+                deleteDrawingOfScreen(auxObject);
+         }
     }
 
     private void drawTimer(string newValue, Number numberTimer, int width, int gapItems, int sizeItem) {

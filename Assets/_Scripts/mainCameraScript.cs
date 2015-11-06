@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
+using System;
 
 public class DrawScreen{
 
@@ -30,24 +32,36 @@ public class DrawScreen{
     }
 }
 
+[System.Serializable]
+public class Number
+{
+    public Texture numberOne, numberTwo, numberThree, numberFour, numberFive;
+    public Texture numberSix, numberSeven, numberEight, numberNine, numberCero;
+    public Texture doublePoint;
+}
+
+
 public class mainCameraScript : MonoBehaviour {
 
     //Parameters
     public int marginLeft_Clock, marginTop_Clock, widthClock,heightClock;
-    public LevelManager levelManager;
+    public Number numberTimer;
 
     //Private Variables
     private List<DrawScreen> textureScreen;
     private double levelTime;
     private bool updateTime;
     private string elapsedTime;
-    private int numberItem_Left, numberItem_Right, sumWidth_Right, sumWidth_Left;
+    private int numberItem_Left, numberItem_Right, numberItem_Timer, sumWidth_Right, sumWidth_Left, sumWidth_Timer;
+    private string firstTimer, secondTimer, thirdTimer, fourTimer;  
     private Vector3 startPoint;
+
 
     void Start () {
         levelTime = 0; numberItem_Right = 0; numberItem_Left = 0; sumWidth_Right = 0; sumWidth_Left = 0;
         updateTime = true;
         textureScreen = new List<DrawScreen>();
+
     }
 	
 	void Update () {
@@ -57,20 +71,41 @@ public class mainCameraScript : MonoBehaviour {
             levelTime += Time.deltaTime;
 
             string minutes = Mathf.Floor((float)levelTime / 60).ToString("00");
+            firstTimer = minutes.Substring(0, 1);
+            secondTimer = minutes.Substring(1, 1);
+
             string seconds = (levelTime % 60).ToString("00");
-            elapsedTime = minutes + ":" + seconds + " ";
+            thirdTimer = seconds.Substring(0, 1);
+            fourTimer = seconds.Substring(1, 1);
+
+            if (seconds.Equals("60")) {
+                thirdTimer = "0";
+                minutes = (Int32.Parse(minutes) + 1).ToString("00");
+                firstTimer = minutes.Substring(0, 1);
+                secondTimer = minutes.Substring(1, 1);
+            }
+
+            elapsedTime = minutes + ":" + seconds;
         }
         
     }
 
     void OnGUI()
     {
+        int gapItems = 5, sizeItem = 50;
+
         //Draw Time 
-        GUI.Label(new Rect(marginLeft_Clock,marginTop_Clock,widthClock,heightClock), elapsedTime);
+        numberItem_Timer = 0; sumWidth_Timer = 0;
+
+        drawTimer(firstTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(secondTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer("doublePoint", numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(thirdTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        drawTimer(fourTimer, numberTimer, sizeItem, gapItems, sizeItem);
+        
 
         //Draw items on Screen (More than One) 
         numberItem_Left = 0; numberItem_Right = 0; sumWidth_Right = 0; sumWidth_Left = 0;
-        int gapItems = 5, sizeItem = 50;
         foreach (DrawScreen auxObject in textureScreen) {
             if (auxObject.getIsLeft())
                 drawTexture_left(auxObject,gapItems,sizeItem);
@@ -78,6 +113,59 @@ public class mainCameraScript : MonoBehaviour {
                 drawTexture_right(auxObject, gapItems, sizeItem);       
         }
         
+    }
+
+    private void drawTimer(string newValue, Number numberTimer, int width, int gapItems, int sizeItem) {
+
+        switch (newValue)
+        {
+            case "0":
+                drawTimerOnScreen(numberTimer.numberCero,width, gapItems, sizeItem);
+                break;
+            case "1":
+                drawTimerOnScreen(numberTimer.numberOne, width, gapItems, sizeItem);
+                break;
+            case "2":
+                drawTimerOnScreen(numberTimer.numberTwo, width, gapItems, sizeItem);
+                break;
+            case "3":
+                drawTimerOnScreen(numberTimer.numberThree, width, gapItems, sizeItem);
+                break;
+            case "4":
+                drawTimerOnScreen(numberTimer.numberFour, width, gapItems, sizeItem);
+                break;
+            case "5":
+                drawTimerOnScreen(numberTimer.numberFive, width, gapItems, sizeItem);
+                break;
+            case "6":
+                drawTimerOnScreen(numberTimer.numberSix, width, gapItems, sizeItem);
+                break;
+            case "7":
+                drawTimerOnScreen(numberTimer.numberSeven, width, gapItems, sizeItem);
+                break;
+            case "8":
+                drawTimerOnScreen(numberTimer.numberEight, width, gapItems, sizeItem);
+                break;
+            case "9":
+                drawTimerOnScreen(numberTimer.numberNine, width, gapItems, sizeItem);
+                break;
+            case "doublePoint":
+                drawTimerOnScreen(numberTimer.doublePoint, width, gapItems, sizeItem);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void drawTimerOnScreen(Texture myTexture ,int width, int gapItems, int sizeItem) {
+        numberItem_Timer++;
+        int posX = sumWidth_Timer + gapItems + gapItems * (numberItem_Timer - 1);
+
+        sumWidth_Timer += width;
+        int posY = gapItems ;
+
+        GUI.DrawTexture(new Rect(posX, posY, width, sizeItem), myTexture, ScaleMode.ScaleToFit, true);
     }
 
     private void drawTexture_right(DrawScreen newObject, int gapItems, int sizeItem){

@@ -1495,7 +1495,18 @@ MonoBehaviour:
   marginTop_Clock: 10
   widthClock: 40
   heightClock: 30
-  levelManager: {fileID: 0}
+  numberTimer:
+    numberOne: {fileID: 2800000, guid: 03c56e75e66fe2a4cb7772ccfec2b82c, type: 3}
+    numberTwo: {fileID: 2800000, guid: e9c5e3cb0a2c94145a17c0c2c15b7426, type: 3}
+    numberThree: {fileID: 2800000, guid: eea266ca03330da4281f98cafa163104, type: 3}
+    numberFour: {fileID: 2800000, guid: 8de4119d8f0eadb478853c7b1a2203dd, type: 3}
+    numberFive: {fileID: 2800000, guid: 4c37541aeff39b84598c80d57af6cdaa, type: 3}
+    numberSix: {fileID: 2800000, guid: 72dac582bec66024ab96f8576761e187, type: 3}
+    numberSeven: {fileID: 2800000, guid: 07ed9e79b13bf314f833dba48cb85e80, type: 3}
+    numberEight: {fileID: 2800000, guid: 3ef2016c6bb18434583ac9a76b37bfce, type: 3}
+    numberNine: {fileID: 2800000, guid: 4051dcd7fa9a28b4e8e357f5fed20f03, type: 3}
+    numberCero: {fileID: 2800000, guid: dd53a6cfff8795046a2b1398dc526389, type: 3}
+    doublePoint: {fileID: 2800000, guid: 3474ce6af81bb61458c1eb61dbaa8309, type: 3}
 --- !u!4 &2075114315 stripped
 Transform:
   m_PrefabParentObject: {fileID: 424906, guid: 729c2d45f2e043d41ba5be923fa40d8c, type: 2}

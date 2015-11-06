@@ -46,6 +46,7 @@ public class winCollider : MonoBehaviour {
     IEnumerator returnToMenu()
     {
         yield return new WaitForSeconds(menuDelay);
+		GameObject.Find("EventScorer").GetComponent<Scorer>().save_score();
         Application.LoadLevel("Menu");
     }
 

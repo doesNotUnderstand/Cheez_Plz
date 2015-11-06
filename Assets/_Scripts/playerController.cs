@@ -202,7 +202,14 @@ public class playerController : MonoBehaviour {
         playerTransform.position += Vector3.down * speed * Time.deltaTime;
         playerMoveDown = true;
     }
-
+	public float get_speed()
+	{
+		return originalSpeed;
+	}
+	public void set_speed(float speed)
+	{
+		originalSpeed = speed;
+	}
     // This function sets the correction animation based on boolean values
     void handlePlayerAnimations()
     {

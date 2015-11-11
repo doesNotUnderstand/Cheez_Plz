@@ -17,7 +17,7 @@ public class GateCollider : MonoBehaviour {
         else
         {
             // Play locked gate sound here, possibly gate rattle animation
-            Debug.Log("Gate is locked..");
+            
         }
         
     }

@@ -5,26 +5,21 @@ public class playerController : MonoBehaviour {
 
     //Public Numbers
     public float originalSpeed;
-    public Texture textureKey;
     public Animator anim;
     public EventText textBox;
 
     //Public Scripts
-    public cheeseCollider cheeseScript;
-    public mainCameraScript MainCamera;
-    public SpriteRenderer spriter;
+    public cheeseCollider cheeseScript;    
 
     Transform playerTransform;
+    SpriteRenderer mouseSprite;
     float speed;
     bool canMove; // Enable/Disable player movement
     bool playerInsidePipe; // To prevent the player from carrying cheese through pipe
     bool isCarryingCheese; // To check for cheese when player goes through pipe
     bool playerHasKey;
     bool playerDied;
-    bool isCrouching;
-
-    //Drawing
-    DrawScreen keyDraw;
+    bool isCrouching;    
 
     // For decoupling the player movement - Other scripts can move the character if needed
     bool playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
@@ -36,26 +31,8 @@ public class playerController : MonoBehaviour {
         playerMoveUp = playerMoveDown = playerMoveLeft = playerMoveRight = false;
         canMove = false; // Initially the player cannot move
         playerHasKey = false; // Initially the player doesn't possess the key
-        speed = originalSpeed;
-        textBox.changeTimedText("Ham ham~", 10.0f);
-        keyDraw = null;
-        spriter = GetComponent<SpriteRenderer>();
-    }
-
-    void checkSneak()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 0.75f * originalSpeed;
-            spriter.color = new Color(1f, 1f, 1f, .5f);
-            isCrouching = true;
-        }
-        else
-        {
-            //speed = 15;
-            spriter.color = new Color(1f, 1f, 1f, 1f);
-            isCrouching = false;
-        }
+        speed = originalSpeed;                
+        mouseSprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -89,19 +66,9 @@ public class playerController : MonoBehaviour {
                 moveCharacterDown();
             }
 
-            // Hold the Left shift or space key to crouch and walk silently
-            /*if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space))
-            {
-                isCrouching = true;
-                speed = 0.75f * originalSpeed;
-            }
-            else
-            {
-                isCrouching = false;
-            }*/
             checkSneak();
 
-            // Hold the mouse left button to carry the cheese
+            // Hold the interact (E) button to carry the cheese
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
@@ -120,18 +87,6 @@ public class playerController : MonoBehaviour {
                 speed = originalSpeed;
             }
         }
-
-        //Draw Key 
-        if (getKeyState() && keyDraw == null)
-        {
-            keyDraw = new DrawScreen("key1", textureKey,30,false);
-            MainCamera.addDrawingToScreen(keyDraw);
-        }
-        else if (!getKeyState() && keyDraw != null) {
-            MainCamera.deleteDrawingOfScreen(keyDraw);
-            keyDraw = null;
-        }
-
         handlePlayerAnimations();
     }
 
@@ -171,7 +126,8 @@ public class playerController : MonoBehaviour {
         playerHasKey = key;
     }
 
-    public bool getKeyState() {
+    public bool getKeyState() 
+    {
         return playerHasKey;
     }
 
@@ -185,6 +141,22 @@ public class playerController : MonoBehaviour {
     public bool getPlayerDied()
     {
         return playerDied;
+    }
+
+    // Change opacity of mouse sprite when in sneaking mode
+    void checkSneak()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 0.75f * originalSpeed;
+            mouseSprite.color = new Color(1f, 1f, 1f, .5f);
+            isCrouching = true;
+        }
+        else
+        {            
+            mouseSprite.color = new Color(1f, 1f, 1f, 1f);
+            isCrouching = false;
+        }
     }
 
     // This function sets the character to hold the cheese
@@ -250,7 +222,23 @@ public class playerController : MonoBehaviour {
         }
         else
         {
-            anim.SetInteger("Direction", 0);
+            // Handle idle motions
+            if (anim.GetInteger("Direction") == 1)
+            {
+                anim.SetInteger("Direction", 5);
+            }
+            else if (anim.GetInteger("Direction") == 3)
+            {
+                anim.SetInteger("Direction", 7);
+            }  
+            else if (anim.GetInteger("Direction") == 2)
+            {
+                anim.SetInteger("Direction", 6);
+            }       
+            else if(anim.GetInteger("Direction") == 4)
+            {
+                anim.SetInteger("Direction", 0);
+            }            
         }
     }
 }

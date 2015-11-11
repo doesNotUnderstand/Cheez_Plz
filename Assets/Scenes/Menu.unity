@@ -400,7 +400,7 @@ MonoBehaviour:
   startScript: 0
   scrollSpeed: 15
   textHeightLimit: -18
-  initialY: -30
+  initialY: -28
 --- !u!1 &254307278
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour {
     //Public Scripts
     public cheeseCollider cheeseScript;
     public mainCameraScript MainCamera;
+    public SpriteRenderer spriter;
 
     Transform playerTransform;
     float speed;
@@ -38,6 +39,23 @@ public class playerController : MonoBehaviour {
         speed = originalSpeed;
         textBox.changeTimedText("Ham ham~", 10.0f);
         keyDraw = null;
+        spriter = GetComponent<SpriteRenderer>();
+    }
+
+    void checkSneak()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 0.75f * originalSpeed;
+            spriter.color = new Color(1f, 1f, 1f, .5f);
+            isCrouching = true;
+        }
+        else
+        {
+            //speed = 15;
+            spriter.color = new Color(1f, 1f, 1f, 1f);
+            isCrouching = false;
+        }
     }
 
     void FixedUpdate()
@@ -72,7 +90,7 @@ public class playerController : MonoBehaviour {
             }
 
             // Hold the Left shift or space key to crouch and walk silently
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space))
+            /*if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space))
             {
                 isCrouching = true;
                 speed = 0.75f * originalSpeed;
@@ -80,7 +98,8 @@ public class playerController : MonoBehaviour {
             else
             {
                 isCrouching = false;
-            }
+            }*/
+            checkSneak();
 
             // Hold the mouse left button to carry the cheese
             if (Input.GetKeyDown(KeyCode.E))

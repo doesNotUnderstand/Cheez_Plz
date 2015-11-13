@@ -11,12 +11,13 @@ public class GateCollider : MonoBehaviour {
         if(other.name == "Mouse" && playerScript.playerHasGateKey())
         {
             // Open the Gate
+            playerScript.playerKeyState(false);
             Destroy(gateObject);
         }
         else
         {
             // Play locked gate sound here, possibly gate rattle animation
-            Debug.Log("Gate is locked..");
+            
         }
         
     }

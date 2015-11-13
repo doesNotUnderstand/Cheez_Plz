@@ -5,11 +5,16 @@ public class LevelManager : MonoBehaviour {
 
     public bool levelStart = false; // Change to private later
     public Vector2 startPoint;
+    public mainCameraScript cameraScript;
+    public Texture textureKey;
     Transform player;
     playerController playerScript;
     bool moveToSpawn;
     bool timerOn;
     float deathTimer;
+
+    //Drawing
+    DrawScreen keyDraw;
 
 	// Use this for initialization
 	void Start () 
@@ -20,6 +25,7 @@ public class LevelManager : MonoBehaviour {
         levelStart = true; //Disable later - Enabled for testing
         deathTimer = 0.0f;
         timerOn = false;
+        keyDraw = null;
 	}
 	
 	// Update is called once per frame
@@ -40,10 +46,29 @@ public class LevelManager : MonoBehaviour {
                 timerOn = true;
                 playerScript.setPlayerDied(false);
             }
-
+            drawKey();
             DeathTimer();
         }
 	}
+
+    public void startLevel()
+    {
+        levelStart = true;
+    }
+
+    void drawKey()
+    {        
+        if (playerScript.getKeyState() && keyDraw == null)
+        {
+            keyDraw = new DrawScreen("key1", textureKey, 30, false);
+            cameraScript.addDrawingToScreen(keyDraw);
+        }
+        else if (!playerScript.getKeyState() && keyDraw != null)
+        {
+            cameraScript.deleteDrawingOfScreen(keyDraw);
+            keyDraw = null;
+        }
+    }
 
     void DeathTimer()
     {

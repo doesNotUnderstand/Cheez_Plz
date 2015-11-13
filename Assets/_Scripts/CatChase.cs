@@ -27,10 +27,10 @@ public class CatChase : MonoBehaviour {
     {
         if (inCatchRange())
         {
-            catCanMove = false;
+			playerScript.setPlayerDied(true);
+			catCanMove = false;
             playerScript.anim.SetBool("MouseFell", true);
             playerScript.allowMovement(false);
-            playerScript.setPlayerDied(true);
             StartCoroutine(waitThenReturn());
         }
 
@@ -65,6 +65,11 @@ public class CatChase : MonoBehaviour {
     {
         return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
     }
+
+	public bool ghostRange()
+	{
+		return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
+	}
 
     void chasePlayer()
     {

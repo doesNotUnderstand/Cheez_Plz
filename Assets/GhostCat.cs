@@ -8,6 +8,11 @@ public class GhostCat: MonoBehaviour {
 	playerController playerScript;
 	public float x_pos;
 	public float y_pos;
+<<<<<<< HEAD
+=======
+	public float ghost_life_expectancy = 0;
+//	public Transform cat;
+>>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
 	void OnTriggerEnter2D(Collider2D c)
 	{
 		if (c.name == "Mouse" && !ghost_spawned)
@@ -15,6 +20,7 @@ public class GhostCat: MonoBehaviour {
 			target = c.gameObject;
 			//spawn a cat
 			//give it a vector location
+<<<<<<< HEAD
 			g = Instantiate(Resources.Load("Prefabs/Cat", typeof(GameObject)), 
 			                           new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
 
@@ -22,6 +28,16 @@ public class GhostCat: MonoBehaviour {
 			//may change when we get final ai
 			g.GetComponent<CatChase>().playerScript = GameObject.Find ("Mouse").GetComponent<playerController>();
 			g.GetComponent<CatChase>().playerTransform = GameObject.Find("Mouse").transform;
+=======
+			g = Instantiate(Resources.Load<GameObject>("Prefabs/Cat"), 
+			                new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
+
+		//	g = Instantiate(cat, new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
+			//ai specific section below
+			//may change when we get final ai
+			g.GetComponent<CatChase>().playerScript = target.GetComponent<playerController>();
+			g.GetComponent<CatChase>().playerTransform = target.transform;
+>>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
 			g.GetComponent<CatChase>().centerPoint.x = x_pos;
 			g.GetComponent<CatChase>().centerPoint.y = y_pos;
 			g.GetComponent<CatChase>().textBox = GameObject.Find("Text").GetComponent<EventText>();
@@ -46,6 +62,13 @@ public class GhostCat: MonoBehaviour {
 	}
 	void Update () 
 	{
+<<<<<<< HEAD
+=======
+		if (ghost_spawned)
+		{
+			ghost_life_expectancy += 3 * Time.deltaTime;
+		}
+>>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
 		//If mouse is not null (mostly here to avoid the console going crazy with errors because target
 		//is only given a value when this object is triggered) and it is caught, destroy
 		//the ghost. Or if the mouse gets too far away, destroy the ghost.
@@ -53,9 +76,16 @@ public class GhostCat: MonoBehaviour {
 		{
 			destroy_cat();
 		}
+<<<<<<< HEAD
 		else if (ghost_spawned && Vector2.Distance(g.transform.position, target.transform.position) > 4)
 		{
 			destroy_cat();
+=======
+		else if (ghost_life_expectancy > 8)
+		{
+			destroy_cat();
+			ghost_life_expectancy = 0;
+>>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
 		}
 	}
 }

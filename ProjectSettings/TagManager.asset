@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - Clock
-=======
-  - Ghost
->>>>>>> jimmy2
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
   - 
-  - Background
+  - 
+  - 
   - 
   - 
   - 
@@ -45,22 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 4171581699
-    locked: 0
-  - name: Player
-    uniqueID: 1685627425
-    locked: 0
-  - name: Clock
-    uniqueID: 25815821
-    locked: 0
-  - name: Mouse
-    uniqueID: 1327331365
-    locked: 0
-  - name: ActiveCat
-    uniqueID: 2195006769
-    locked: 0
-  - name: SleepingCat
-    uniqueID: 887015327
     locked: 0

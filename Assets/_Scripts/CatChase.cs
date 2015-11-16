@@ -31,14 +31,13 @@ public class CatChase : MonoBehaviour {
 			catCanMove = false;
             playerScript.anim.SetBool("MouseFell", true);
             playerScript.allowMovement(false);
-<<<<<<< HEAD
-=======
+
             playerScript.setPlayerDied(true);
 			foreach(GameObject g in GameObject.FindGameObjectsWithTag("Ghost"))
 			{
 				g.GetComponent<GhostCat>().destroy_cat();
 			}
->>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
+
             StartCoroutine(waitThenReturn());
         }
 

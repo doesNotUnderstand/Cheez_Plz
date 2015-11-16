@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
     public GameObject backButton;
 
     // Controls buttons
-    // Add controls image here
+    public GameObject controlImage;
     public creditScroller creditScript;
     public GameObject backSettingButton;
 
@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour {
         continueButton.SetActive(false);
         settingsButton.SetActive(false);
         quitButton.SetActive(false);
-        // controlImage.SetActive(false);
+        controlImage.SetActive(false);
         creditScript.startScript = false;
         backSettingButton.SetActive(false);
         
@@ -77,9 +77,10 @@ public class UIManager : MonoBehaviour {
     {
         controlButton.SetActive(false);
         creditsButton.SetActive(false);
+        backButton.SetActive(false);
 
         // Display controls image here
-        // controlImage.SetActive(true);
+        controlImage.SetActive(true);
         backSettingButton.SetActive(true);
     }
 
@@ -88,6 +89,7 @@ public class UIManager : MonoBehaviour {
     {
         controlButton.SetActive(false);
         creditsButton.SetActive(false);
+        backButton.SetActive(false);
 
         // Display credits here
         creditScript.startScript = true;

@@ -1412,10 +1412,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 --- !u!1 &1264743476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,9 +1439,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2011942758}
   m_RootOrder: 2
->>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430
-=======
->>>>>>> 68f30249661ae480c991e4a3065aad939ea46d12
 --- !u!1 &1272277428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,8 +1470,6 @@ Transform:
   - {fileID: 985836894}
   m_Father: {fileID: 706137428}
   m_RootOrder: 4
-=======
->>>>>>> jimmy2
 --- !u!4 &1273825741 stripped
 Transform:
   m_PrefabParentObject: {fileID: 494944, guid: fafb4772922a52b40a8b1a51b34a68e1, type: 2}
@@ -1887,6 +1878,7 @@ Transform:
   m_Children:
   - {fileID: 744898342}
   - {fileID: 87442571}
+  - {fileID: 1264743477}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &2011942759
@@ -1932,8 +1924,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 424906, guid: 729c2d45f2e043d41ba5be923fa40d8c, type: 2}
   m_PrefabInternal: {fileID: 437383457}
-<<<<<<< HEAD
-=======
 --- !u!1001 &2081713840
 Prefab:
   m_ObjectHideFlags: 0
@@ -2077,4 +2067,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c2ceb835e24791867aa50c24e145d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 28105ae9ae28c2ae2feb1f29c0d51aac266bd430

@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour {
 
     //Public Scripts
     public cheeseCollider cheeseScript;    
+	public Box_Grab boxScript;
 
     Transform playerTransform;
     SpriteRenderer mouseSprite;
@@ -17,6 +18,7 @@ public class playerController : MonoBehaviour {
     bool canMove; // Enable/Disable player movement
     bool playerInsidePipe; // To prevent the player from carrying cheese through pipe
     bool isCarryingCheese; // To check for cheese when player goes through pipe
+	bool carryingBox;
     bool playerHasKey;
     bool playerDied;
     bool isCrouching;    
@@ -80,6 +82,21 @@ public class playerController : MonoBehaviour {
                     isCarryingCheese = false;           
             }
             playerCarryCheese();
+
+			//Pick up the box, press interact to carry box
+			if(Input.GetKeyDown(KeyCode.E))
+			{
+				if(!isCarryingCheese && !carryingBox && boxScript.getBoxRange() && !playerInsidePipe)
+				{
+					carryingBox = true;
+
+				}
+				else if(carryingBox)
+				{
+					carryingBox = false;
+				}
+				carry_the_box();
+			}
 
             // Return player to normal speed if not crouching or holding cheese
             if (!isCrouching && !isCarryingCheese)
@@ -167,7 +184,20 @@ public class playerController : MonoBehaviour {
         else
             isCarryingCheese = false;
     }
+	// Same as above but for the box
+	void carry_the_box()
+	{
+		if (carryingBox && boxScript.getBoxRange () && !playerInsidePipe) {
+			boxScript.transform.parent = playerTransform.transform;
 
+		} 
+		else 
+		{
+			carryingBox = false;
+			boxScript.transform.parent = null;
+		}
+
+	}
     // These functions moves the character and sets the boolean to be used
     // with the handlePlayerAnimations() function
     void moveCharacterLeft()

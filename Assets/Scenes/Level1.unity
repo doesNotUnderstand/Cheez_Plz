@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 190490, guid: 449da0bd60d71f94687b263a8fa922fd, type: 2}
       propertyPath: m_Name
-      value: This is Level 1
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 21294296, guid: 449da0bd60d71f94687b263a8fa922fd, type: 2}
       propertyPath: m_Sprite
@@ -149,11 +149,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 494944, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.75
+      value: -8.19999981
       objectReference: {fileID: 0}
     - target: {fileID: 494944, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.0299997
+      value: 11.6099997
       objectReference: {fileID: 0}
     - target: {fileID: 494944, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: m_LocalPosition.z
@@ -181,11 +181,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11422808, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: startPoint.x
-      value: -3.75
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 11422808, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: startPoint.y
-      value: 10
+      value: 11.6000004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}

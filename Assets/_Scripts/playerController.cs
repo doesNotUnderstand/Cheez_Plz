@@ -35,6 +35,7 @@ public class playerController : MonoBehaviour {
         playerHasKey = false; // Initially the player doesn't possess the key
         speed = originalSpeed;                
         mouseSprite = GetComponent<SpriteRenderer>();
+        carryingBox = false;
     }
 
     void FixedUpdate()
@@ -86,7 +87,7 @@ public class playerController : MonoBehaviour {
 			//Pick up the box, press interact to carry box
 			if(Input.GetKeyDown(KeyCode.E))
 			{
-				if(!isCarryingCheese && !carryingBox && boxScript.getBoxRange() && !playerInsidePipe)
+				if(boxScript && !isCarryingCheese && !carryingBox && boxScript.getBoxRange() && !playerInsidePipe)
 				{
 					carryingBox = true;
 
@@ -187,11 +188,11 @@ public class playerController : MonoBehaviour {
 	// Same as above but for the box
 	void carry_the_box()
 	{
-		if (carryingBox && boxScript.getBoxRange () && !playerInsidePipe) {
+		if (boxScript && carryingBox && boxScript.getBoxRange () && !playerInsidePipe) {
 			boxScript.transform.parent = playerTransform.transform;
 
 		} 
-		else 
+		else if(boxScript)
 		{
 			carryingBox = false;
 			boxScript.transform.parent = null;

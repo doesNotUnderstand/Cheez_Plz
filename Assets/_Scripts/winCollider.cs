@@ -5,8 +5,9 @@ public class winCollider : MonoBehaviour {
 
     public SpriteRenderer dimRenderer; // For testing alpha effects
     public GameObject levelComplete;
+    public GameObject minimap; // Turn off minimap when level is complete
     public bool dimLights = false;
-    public int menuDelay = 5;
+    public int menuDelay;
     float dimAlpha = 0.0f;
     bool playerInside = false;
     bool cheeseInside = false;
@@ -32,11 +33,13 @@ public class winCollider : MonoBehaviour {
     {
         if (dimLights && dimAlpha < 0.5f)
         {
-            dimAlpha += 0.25f * Time.deltaTime;
+            if(minimap.activeSelf)
+                minimap.SetActive(false);
+            dimAlpha += 0.35f * Time.deltaTime;
             dimRenderer.color = new Color(1f, 1f, 1f, dimAlpha);
         }
         else if(dimAlpha >= 0.5f)
-        {
+        {          
             levelComplete.SetActive(true);
             StartCoroutine(returnToMenu());
         }

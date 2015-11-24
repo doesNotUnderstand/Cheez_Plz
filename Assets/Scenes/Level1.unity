@@ -787,17 +787,17 @@ MonoBehaviour:
   widthClock: 0
   heightClock: 0
   numberTimer:
-    numberOne: {fileID: 0}
-    numberTwo: {fileID: 0}
-    numberThree: {fileID: 0}
-    numberFour: {fileID: 0}
-    numberFive: {fileID: 0}
-    numberSix: {fileID: 0}
-    numberSeven: {fileID: 0}
-    numberEight: {fileID: 0}
-    numberNine: {fileID: 0}
-    numberCero: {fileID: 0}
-    doublePoint: {fileID: 0}
+    numberOne: {fileID: 2800000, guid: 03c56e75e66fe2a4cb7772ccfec2b82c, type: 3}
+    numberTwo: {fileID: 2800000, guid: e9c5e3cb0a2c94145a17c0c2c15b7426, type: 3}
+    numberThree: {fileID: 2800000, guid: eea266ca03330da4281f98cafa163104, type: 3}
+    numberFour: {fileID: 2800000, guid: 8de4119d8f0eadb478853c7b1a2203dd, type: 3}
+    numberFive: {fileID: 2800000, guid: 4c37541aeff39b84598c80d57af6cdaa, type: 3}
+    numberSix: {fileID: 2800000, guid: 72dac582bec66024ab96f8576761e187, type: 3}
+    numberSeven: {fileID: 2800000, guid: 07ed9e79b13bf314f833dba48cb85e80, type: 3}
+    numberEight: {fileID: 2800000, guid: 3ef2016c6bb18434583ac9a76b37bfce, type: 3}
+    numberNine: {fileID: 2800000, guid: 4051dcd7fa9a28b4e8e357f5fed20f03, type: 3}
+    numberCero: {fileID: 2800000, guid: dd53a6cfff8795046a2b1398dc526389, type: 3}
+    doublePoint: {fileID: 2800000, guid: 3474ce6af81bb61458c1eb61dbaa8309, type: 3}
 --- !u!114 &1990256723 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11417276, guid: e1cdd73aca5334f2e8d8c002327fb82d,

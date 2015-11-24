@@ -14,9 +14,9 @@ TagManager:
   - UI
   - 
   - 
+  - Player
+  - PickUpObjects
   - MapUI
-  - 
-  - 
   - 
   - 
   - 
@@ -41,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1281642601
+    locked: 0
+  - name: PickUpObjects
+    uniqueID: 2330578779
+    locked: 0
+  - name: MapUI
+    uniqueID: 4189807521
     locked: 0

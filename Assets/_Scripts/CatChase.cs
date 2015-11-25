@@ -14,13 +14,16 @@ public class CatChase : MonoBehaviour {
     bool catCanMove;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
 
+    public GameObject bigCollider;
+    private bool bigColliderIsActive = false;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
     {
         catTransform = GetComponent<Transform>();
         catCanMove = true;
-	}
+        bigCollider.SetActive(bigColliderIsActive);
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -54,6 +57,22 @@ public class CatChase : MonoBehaviour {
                 moveBackToCenter();
             }
         }
+
+        //This SHould be Change
+        if (Input.GetKeyDown(KeyCode.B)) {
+            if (bigColliderIsActive)
+            {
+                bigColliderIsActive = !bigColliderIsActive;
+                bigCollider.SetActive(bigColliderIsActive);
+            }
+            else {
+                bigColliderIsActive = !bigColliderIsActive;
+                bigCollider.SetActive(bigColliderIsActive);
+            }
+           
+        }
+
+
 	}
 
     // Return whether the mouse is in cat's range

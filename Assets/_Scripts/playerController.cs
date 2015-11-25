@@ -1,7 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(PolyNavAgent))]
 public class playerController : MonoBehaviour {
+
+    private PolyNavAgent _agent;
+
+    public PolyNavAgent agent
+    {
+        get
+        {
+            if (!_agent) { _agent = GetComponent<PolyNavAgent>(); }
+            return _agent;
+        }
+    }
 
     //Public Numbers
     public float originalSpeed;

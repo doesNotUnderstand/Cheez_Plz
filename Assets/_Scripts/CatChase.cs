@@ -1,7 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(PolyNavAgent))]
 public class CatChase : MonoBehaviour {
+
+    private PolyNavAgent _agent;
+
+    public PolyNavAgent agent
+    {
+        get
+        {
+            if (!_agent)
+                _agent = GetComponent<PolyNavAgent>();
+            return _agent;
+        }
+    }
 
     public Transform playerTransform;
     public playerController playerScript;

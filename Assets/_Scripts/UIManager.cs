@@ -105,7 +105,7 @@ public class UIManager : MonoBehaviour {
         tutorialButton.SetActive(false);
         level1Button.SetActive(false);
         level2Button.SetActive(false);
-        level3Button.SetActive(false);
+        //level3Button.SetActive(false);
 
         startButton.SetActive(true);
         continueButton.SetActive(true);
@@ -124,7 +124,7 @@ public class UIManager : MonoBehaviour {
         tutorialButton.SetActive(true);
         level1Button.SetActive(true);
         level2Button.SetActive(true);
-        level3Button.SetActive(true);
+        //level3Button.SetActive(true);
         backButton.SetActive(true);
     }
 }

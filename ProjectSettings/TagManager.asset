@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
+  - Pit
   - Player
   - PickUpObjects
   - MapUI
-  - 
   - 
   - 
   - 
@@ -45,9 +45,12 @@ TagManager:
   - name: Player
     uniqueID: 1281642601
     locked: 0
-  - name: PickUpObjects
+  - name: Pit
     uniqueID: 2330578779
     locked: 0
-  - name: MapUI
+  - name: PickUpObjects
     uniqueID: 4189807521
+    locked: 0
+  - name: MapUI
+    uniqueID: 2898359203
     locked: 0

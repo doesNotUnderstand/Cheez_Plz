@@ -12,12 +12,12 @@ public class haste : MonoBehaviour {
 		{
 			target = c.gameObject;
 			speed_up = true;
-			o_speed = target.GetComponent<playerController>().get_speed();
-			target.GetComponent<playerController>().set_speed(o_speed * 1.5f);
-			gameObject.GetComponent<SpriteRenderer>().enabled = false;
-			yield return new WaitForSeconds(5f);
-			target.GetComponent<playerController>().set_speed(o_speed);
-			Destroy(gameObject);
+			o_speed = target.GetComponent<playerController> ().get_speed ();
+			target.GetComponent<playerController> ().set_speed (o_speed * 1.5f);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			yield return new WaitForSeconds (5f);
+			target.GetComponent<playerController> ().set_speed (o_speed);
+			gameObject.SetActive (false);
 		}
 	}
 }

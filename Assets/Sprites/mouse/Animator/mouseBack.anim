@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: mouseWalkDown
+  m_Name: mouseBack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,20 +18,20 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - time: .13333334
-      value: {fileID: 21300064, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - time: .266666681
-      value: {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - time: .400000006
-      value: {fileID: 21300108, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - time: .533333361
-      value: {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
+      value: {fileID: 21300000, guid: 7103ed338fceba647a795a4818e3e54d, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300000, guid: 22b7d265d3fe0984ea2c0aec754ca1b1, type: 3}
+    - time: .166666672
+      value: {fileID: 21300000, guid: 1ab3f30f7c0bcaa4f9440eab2ecf85ad, type: 3}
+    - time: .25
+      value: {fileID: 21300000, guid: 43cd3e1265b2aa947acf42f067606c7c, type: 3}
+    - time: .333333343
+      value: {fileID: 21300000, guid: 077f4fe0d347d81498ddf0e1127ea31d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 30
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -45,15 +45,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - {fileID: 21300064, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - {fileID: 21300108, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
-    - {fileID: 21300092, guid: bf50d26b55e89ac48867c1a222de19b8, type: 3}
+    - {fileID: 21300000, guid: 7103ed338fceba647a795a4818e3e54d, type: 3}
+    - {fileID: 21300000, guid: 22b7d265d3fe0984ea2c0aec754ca1b1, type: 3}
+    - {fileID: 21300000, guid: 1ab3f30f7c0bcaa4f9440eab2ecf85ad, type: 3}
+    - {fileID: 21300000, guid: 43cd3e1265b2aa947acf42f067606c7c, type: 3}
+    - {fileID: 21300000, guid: 077f4fe0d347d81498ddf0e1127ea31d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .566666722
+    m_StopTime: .416666687
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

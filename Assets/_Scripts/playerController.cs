@@ -249,27 +249,7 @@ public class playerController : MonoBehaviour {
         }
         else if (playerMoveDown)
         {
-            anim.SetInteger("Direction", 4);
-        }
-        else
-        {
-            // Handle idle motions
-            if (anim.GetInteger("Direction") == 1)
-            {
-                anim.SetInteger("Direction", 5);
-            }
-            else if (anim.GetInteger("Direction") == 3)
-            {
-                anim.SetInteger("Direction", 7);
-            }  
-            else if (anim.GetInteger("Direction") == 2)
-            {
-                anim.SetInteger("Direction", 6);
-            }       
-            else if(anim.GetInteger("Direction") == 4)
-            {
-                anim.SetInteger("Direction", 0);
-            }            
+            anim.SetInteger("Direction", 0);
         }
     }
 }

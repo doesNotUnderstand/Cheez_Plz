@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
     playerController playerScript;
     bool moveToSpawn;
     bool timerOn;
+	float speed;
     float deathTimer;
 
     //Drawing
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+		speed = GameObject.Find ("Mouse").GetComponent<playerController> ().get_speed ();
         player = GetComponent<Transform>();
         playerScript = GetComponent<playerController>();
         moveToSpawn = true;
@@ -35,7 +37,15 @@ public class LevelManager : MonoBehaviour {
         {
             if(moveToSpawn)
             {
+				GameObject.Find("Mouse").GetComponent<playerController>().set_speed(speed);
                 player.position = new Vector3(startPoint.x, startPoint.y, 0);
+			
+				foreach(GameObject g in GameObject.FindGameObjectsWithTag("Trap"))
+				{
+					g.SetActive(true);
+					g.GetComponent<SpriteRenderer>().enabled = true;
+				}
+				
                 playerScript.anim.SetBool("MouseFell", false);
                 moveToSpawn = false;
                 playerScript.allowMovement(true);

@@ -48,6 +48,11 @@ public class playerController : MonoBehaviour {
             Application.Quit();
         }
 
+        if (Input.GetKey(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
         if (canMove)
         {
             // Separate left/right with up/down to enable diagonal movement

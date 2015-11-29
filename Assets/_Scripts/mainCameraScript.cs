@@ -85,8 +85,7 @@ public class mainCameraScript : MonoBehaviour {
 
         //Timer
         if (updateTime) {
-            levelTime += Time.deltaTime;
-
+            levelTime += Time.deltaTime;            
             string minutes = Mathf.Floor((float)levelTime / 60).ToString("00");
             firstDigitTimer = minutes.Substring(0, 1);
             secondDigitTimer = minutes.Substring(1, 1);
@@ -215,8 +214,28 @@ public class mainCameraScript : MonoBehaviour {
         this.levelTime = newValue;
     }
 
-    public double get_levelTime() {
-        return this.levelTime;
+    public int get_levelTime() {
+        return (((int)levelTime / 60) * 60) + (((int)levelTime) % 60);        
+    }
+
+    public string get_levelTimeSeconds()
+    {
+        return (levelTime % 60).ToString("00");
+    }
+
+    public string get_levelTimeMinutes()
+    {
+        return Mathf.Floor((float)levelTime / 60).ToString("00");
+    }
+
+    public void triggerTimer(bool trigger)
+    {
+        updateTime = trigger;
+    }
+
+    public bool triggerStatus()
+    {
+        return updateTime;
     }
 
     public void addDrawingToScreen(DrawScreen newDraw ) {

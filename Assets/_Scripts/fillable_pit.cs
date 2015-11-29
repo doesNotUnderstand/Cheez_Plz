@@ -14,7 +14,7 @@ public class fillable_pit : MonoBehaviour {
 		if (c.name == "Box") {
 			c.transform.parent = null;
 			c.transform.position = gameObject.transform.position;
-			gameObject.GetComponent<CircleCollider2D> ().enabled = false;
+			gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 			c.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 			filled = true;
 		} 

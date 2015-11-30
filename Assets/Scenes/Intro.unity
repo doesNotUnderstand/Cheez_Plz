@@ -606,6 +606,19 @@ Prefab:
       propertyPath: timerScript
       value: 
       objectReference: {fileID: 2011942760}
+    - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
+      propertyPath: scoreMenu
+      value: 
+      objectReference: {fileID: 1176808354}
+    - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
+      propertyPath: cheeseRating
+      value: 
+      objectReference: {fileID: 21300000, guid: ff9c00ca3b86b134891d47223ab0c25d,
+        type: 3}
+    - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
+      propertyPath: tutorialRecord.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
   m_IsPrefabParent: 0
@@ -1296,6 +1309,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 155115905}
   m_Script: {fileID: 11500000, guid: 77a8ae597179b1d4d9671743c7b4b7b6, type: 3}
+--- !u!1 &1176808354 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 196390, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+  m_PrefabInternal: {fileID: 279492833}
 --- !u!114 &1181659722 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11453532, guid: 51317f844947946479ed38208f13ce5d,

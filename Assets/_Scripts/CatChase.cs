@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PolyNavAgent))]
 public class CatChase : MonoBehaviour {
@@ -26,6 +27,10 @@ public class CatChase : MonoBehaviour {
     Transform catTransform;
     bool catCanMove;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
+
+    // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
+    public bool patrol;
+    public List<Vector2> waypoints = new List<Vector2>();
 
 
 	// Use this for initialization
@@ -94,54 +99,16 @@ public class CatChase : MonoBehaviour {
     void chasePlayer()
     {
         alreadyChasing = true;
-        if(playerTransform.position.x < centerPoint.x)
-        {
-            catTransform.position = new Vector3(catTransform.position.x - catSpeed * Time.deltaTime,
-                                                catTransform.position.y, catTransform.position.z);
-        }
-        else if(playerTransform.position.x > centerPoint.x)
-        {
-            catTransform.position = new Vector3(catTransform.position.x + catSpeed * Time.deltaTime,
-                                                catTransform.position.y, 0);
-        }
-
-        if(playerTransform.position.y < centerPoint.y)
-        {
-            catTransform.position = new Vector3(catTransform.position.x,
-                                                catTransform.position.y - catSpeed * Time.deltaTime, 0);
-        }
-        else if (playerTransform.position.y > centerPoint.y)
-        {
-            catTransform.position = new Vector3(catTransform.position.x,
-                                                catTransform.position.y + catSpeed * Time.deltaTime, 0);
-        }  
+        agent.SetDestination(new Vector2(playerTransform.position.x,
+                                         playerTransform.position.y));
     }
 
     void moveBackToCenter()
     {
         if (!atCenter())
         {
-            if (catTransform.position.x > centerPoint.x)
-            {
-                catTransform.position = new Vector3(catTransform.position.x - catSpeed * Time.deltaTime,
-                                                    catTransform.position.y, catTransform.position.z);
-            }
-            else if (catTransform.position.x < centerPoint.x)
-            {
-                catTransform.position = new Vector3(catTransform.position.x + catSpeed * Time.deltaTime,
-                                                    catTransform.position.y, 0);
-            }
-
-            if (catTransform.position.y > centerPoint.y)
-            {
-                catTransform.position = new Vector3(catTransform.position.x,
-                                                    catTransform.position.y - catSpeed * Time.deltaTime, 0);
-            }
-            else if (catTransform.position.y < centerPoint.y)
-            {
-                catTransform.position = new Vector3(catTransform.position.x,
-                                                    catTransform.position.y + catSpeed * Time.deltaTime, 0);
-            }
+            agent.SetDestination(new Vector2(centerPoint.x,
+                                             centerPoint.y));
         }
     }
 

@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour {
 
     //Public Scripts
     public cheeseCollider cheeseScript;    
-	public Box_Grab boxScript;
 
     Transform playerTransform;
     SpriteRenderer mouseSprite;
@@ -22,7 +21,6 @@ public class playerController : MonoBehaviour {
     bool playerHasKey;
     bool playerDied;
     bool isCrouching;    
-
     // For decoupling the player movement - Other scripts can move the character if needed
     bool playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
 
@@ -35,7 +33,6 @@ public class playerController : MonoBehaviour {
         playerHasKey = false; // Initially the player doesn't possess the key
         speed = originalSpeed;                
         mouseSprite = GetComponent<SpriteRenderer>();
-        carryingBox = false;
     }
 
     void FixedUpdate()
@@ -90,19 +87,8 @@ public class playerController : MonoBehaviour {
             playerCarryCheese();
 
 			//Pick up the box, press interact to carry box
-			if(Input.GetKeyDown(KeyCode.E))
-			{
-				if(boxScript && !isCarryingCheese && !carryingBox && boxScript.getBoxRange() && !playerInsidePipe)
-				{
-					carryingBox = true;
 
-				}
-				else if(carryingBox)
-				{
-					carryingBox = false;
-				}
-				carry_the_box();
-			}
+
 
             // Return player to normal speed if not crouching or holding cheese
             if (!isCrouching && !isCarryingCheese)
@@ -183,27 +169,14 @@ public class playerController : MonoBehaviour {
     }
 
     // This function sets the character to hold the cheese
-    void  playerCarryCheese()
-    {
-        if (isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
-            cheeseScript.transform.position = playerTransform.transform.position;
-        else
-            isCarryingCheese = false;
-    }
-	// Same as above but for the box
-	void carry_the_box()
+	void  playerCarryCheese()
 	{
-		if (boxScript && carryingBox && boxScript.getBoxRange () && !playerInsidePipe) {
-			boxScript.transform.parent = playerTransform.transform;
-
-		} 
-		else if(boxScript)
-		{
-			carryingBox = false;
-			boxScript.transform.parent = null;
-		}
-
+		if (isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
+			cheeseScript.transform.position = playerTransform.transform.position;
+		else
+			isCarryingCheese = false;
 	}
+
     // These functions moves the character and sets the boolean to be used
     // with the handlePlayerAnimations() function
     void moveCharacterLeft()
@@ -237,6 +210,7 @@ public class playerController : MonoBehaviour {
 	{
 		originalSpeed = speed;
 	}
+
     // This function sets the correction animation based on boolean values
     void handlePlayerAnimations()
     {

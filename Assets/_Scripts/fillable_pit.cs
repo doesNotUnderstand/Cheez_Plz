@@ -11,7 +11,7 @@ public class fillable_pit : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D c)
 	{
-		if (c.name == "Box") {
+		if (c.gameObject.CompareTag("Box")) {
 			c.transform.parent = null;
 			c.transform.position = gameObject.transform.position;
 			gameObject.GetComponent<BoxCollider2D> ().enabled = false;

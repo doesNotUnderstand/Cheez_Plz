@@ -4,6 +4,8 @@ using System.Collections;
 
 public class UIManager : MonoBehaviour {
 
+    public ScoreSystem scoreScript;
+
     // Main menu buttons
     public GameObject startButton;
     public GameObject continueButton;
@@ -25,6 +27,10 @@ public class UIManager : MonoBehaviour {
     public GameObject level1Button;
     public GameObject level2Button;
     public GameObject level3Button;
+    public Sprite cheeseZero;
+    public Sprite cheeseOne;
+    public Sprite cheeseTwo;
+    public Sprite cheeseThree;
 
 	public void StartGame()
     {
@@ -121,10 +127,30 @@ public class UIManager : MonoBehaviour {
         settingsButton.SetActive(false);
         quitButton.SetActive(false);
 
+        setRatingImages();
         tutorialButton.SetActive(true);
         level1Button.SetActive(true);
         level2Button.SetActive(true);
         //level3Button.SetActive(true);
         backButton.SetActive(true);
+    }
+
+    void setRatingImages()
+    {
+        GameObject[] levelButtons = { tutorialButton, level1Button, level2Button };
+        int rating = 0;
+        for(int i = 0; i < levelButtons.Length; i++)
+        {
+            rating = scoreScript.returnCheeseRating(i, 
+                scoreScript.returnStoredScore(scoreScript.returnLevelString(i)));            
+            if (rating == 3)
+                levelButtons[i].GetComponent<Image>().sprite = cheeseThree;                
+            else if (rating == 2)
+                levelButtons[i].GetComponent<Image>().sprite = cheeseTwo;
+            else if (rating == 1)
+                levelButtons[i].GetComponent<Image>().sprite = cheeseOne;
+            else
+                levelButtons[i].GetComponent<Image>().sprite = cheeseZero;
+        }
     }
 }

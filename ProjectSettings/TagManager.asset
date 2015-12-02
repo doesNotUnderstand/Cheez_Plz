@@ -44,10 +44,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Pit
     uniqueID: 1281642601
     locked: 0
-  - name: Pit
+  - name: Player
     uniqueID: 2330578779
     locked: 0
   - name: PickUpObjects

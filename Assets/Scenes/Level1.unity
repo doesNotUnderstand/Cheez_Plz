@@ -143,7 +143,7 @@ Prefab:
       objectReference: {fileID: 2081532685}
     - target: {fileID: 21247066, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: m_SortingLayerID
-      value: -1964388517
+      value: -1396608093
       objectReference: {fileID: 0}
     - target: {fileID: 11499760, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: speed
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &347051640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -458,9 +459,6 @@ MonoBehaviour:
   scoreMenu: {fileID: 1550488027}
   timerScript: {fileID: 1951344282}
   cheeseRating: {fileID: 21300000, guid: ff9c00ca3b86b134891d47223ab0c25d, type: 3}
-  tutorialRecord: 3c0000005000000064000000
-  firstRecord: 78000000f00000002c010000
-  secondRecord: 2c010000e001000058020000
   dimLights: 0
   menuDelay: 3
   level: 1
@@ -782,6 +780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &590420464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1049,6 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &684070296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &876596240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1887,6 +1888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &1104910159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2070,7 +2072,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494944, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.75
+      value: -9.72000027
       objectReference: {fileID: 0}
     - target: {fileID: 494944, guid: d2cab2d3541e34aebab3042b22cb4cae, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2652,6 +2654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 1872738807}
   parent: {fileID: 894299471}
+  attached: 0
 --- !u!61 &1882112993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2932,6 +2935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2b1eefbec214d70a82e777241ccb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialRecord: 3c0000005000000064000000
+  firstRecord: 78000000f00000002c010000
+  secondRecord: 2c010000e001000058020000
 --- !u!1 &1976876306
 GameObject:
   m_ObjectHideFlags: 0

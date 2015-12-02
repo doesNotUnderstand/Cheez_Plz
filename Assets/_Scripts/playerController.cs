@@ -143,10 +143,17 @@ public class playerController : MonoBehaviour {
     // Sets whether the player died or not
     public void setPlayerDied(bool died)
     {
-		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Box"))
-		{
-			g.gameObject.GetComponent<Box_Grab>().return_to_start();
-		}
+        if(died)
+        {
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Box"))
+            {
+                g.gameObject.GetComponent<Box_Grab>().return_to_start();
+            }
+
+            if (cheeseScript.resetsOnSpawn)
+                cheeseScript.resetPosition();
+        }
+		
         playerDied = died;
     }
 

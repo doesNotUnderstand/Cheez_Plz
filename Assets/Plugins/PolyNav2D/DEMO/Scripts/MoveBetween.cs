@@ -19,15 +19,18 @@ public class MoveBetween : MonoBehaviour{
 		}
 	}
 
+    
 	void OnEnable(){
 		agent.OnDestinationReached += MoveRandom;
 		agent.OnDestinationInvalid += MoveRandom;
 	}
 
+    /*
 	void OnDisable(){
 		agent.OnDestinationReached -= MoveRandom;
 		agent.OnDestinationInvalid -= MoveRandom;
 	}
+    */
 
 
 	IEnumerator Start(){

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(PolyNavAgent))]
 public class CatChase : MonoBehaviour {
@@ -30,7 +31,8 @@ public class CatChase : MonoBehaviour {
 
     // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
     public bool patrol;
-    public List<Vector2> waypoints = new List<Vector2>();
+    public Vector2 waypoint = new Vector2();
+    Vector2 originWaypoint = new Vector2();
 
 
 	// Use this for initialization
@@ -38,6 +40,13 @@ public class CatChase : MonoBehaviour {
     {
         catTransform = GetComponent<Transform>();
         catCanMove = true;
+
+        if (patrol)
+        {
+            originWaypoint = new Vector2(catTransform.position.x,
+                                         catTransform.position.y);
+            agent.SetDestination(waypoint);
+        }
 	}
 	
 	// Update is called once per frame
@@ -116,5 +125,28 @@ public class CatChase : MonoBehaviour {
     {
         return (catTransform.position.x <= centerPoint.x + 0.1f && catTransform.position.x >= centerPoint.x - 0.1f) &&
                (catTransform.position.y <= centerPoint.y + 0.1f && catTransform.position.y >= centerPoint.y - 0.1f);
+    }
+
+    void SetDestination()
+    {
+        if (catTransform.position.y == originWaypoint.y - 0.1f)
+        {
+            agent.SetDestination(waypoint);
+        }
+        else {
+            agent.SetDestination(originWaypoint);
+        }
+    }
+
+    void OnEnable()
+    {
+        agent.OnDestinationReached += SetDestination;
+        agent.OnDestinationInvalid += SetDestination;
+    }
+
+    void OnDisable()
+    {
+        agent.OnDestinationInvalid -= SetDestination;
+        agent.OnDestinationReached -= SetDestination;
     }
 }

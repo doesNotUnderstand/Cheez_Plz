@@ -17,6 +17,7 @@ public class fillable_pit : MonoBehaviour {
 			gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 			c.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 			filled = true;
+			c.gameObject.GetComponent<Box_Grab>().attached = true;
 		} 
 		else if(c.name == "Mouse")
 		{

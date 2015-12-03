@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 [RequireComponent(typeof(PolyNavAgent))]
 public class CatChase : MonoBehaviour {
 
     private PolyNavAgent _agent;
-
     public PolyNavAgent agent
     {
         get
@@ -26,7 +26,7 @@ public class CatChase : MonoBehaviour {
     public float catchRange = 0.0f; // The range where the cat catches the mouse
     public EventText textBox; // In case the cat needs to display a textBox
     Transform catTransform;
-    bool catCanMove;
+    bool catCanMove = true;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
 
     // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
@@ -34,76 +34,26 @@ public class CatChase : MonoBehaviour {
     public Vector2 waypoint = new Vector2();
     Vector2 originWaypoint = new Vector2();
 
+    System.Random rand = new System.Random();
 
 	// Use this for initialization
-	void Start () 
+    void Awake()
     {
         catTransform = GetComponent<Transform>();
-        catCanMove = true;
-
-        if (patrol)
-        {
-            originWaypoint = new Vector2(catTransform.position.x,
-                                         catTransform.position.y);
-            agent.SetDestination(waypoint);
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        if (inCatchRange())
-        {
-			playerScript.setPlayerDied(true);
-			catCanMove = false;
-            playerScript.anim.SetBool("MouseFell", true);
-            playerScript.allowMovement(false);
-
-            playerScript.setPlayerDied(true);
-			foreach(GameObject g in GameObject.FindGameObjectsWithTag("Ghost"))
-			{
-				g.GetComponent<GhostCat>().destroy_cat();
-			}
-
-            StartCoroutine(waitThenReturn());
-        }
-
-        if (catCanMove)
-        {
-            if (inRange() && (!playerScript.playerIsCrouching() || alreadyChasing))
-            {
-                textBox.changeTimedText("!", 10.0f);
-                chasePlayer();
-            }
-            else
-            {
-                alreadyChasing = false;
-                moveBackToCenter();
-            }
-        }
-	}
-
-    // Return whether the mouse is in cat's range
-    bool inRange()
-    {
-        return Vector3.Distance(playerTransform.position, centerPoint) <= range;
+        originWaypoint = new Vector2(catTransform.position.x,
+                                     catTransform.position.y);
+        agent.SetDestination(waypoint);
+        Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
     }
 
-    IEnumerator waitThenReturn()
+    void Update()
     {
-        yield return new WaitForSeconds(3);
-        catCanMove = true;
+        if (inCatchRange()) {
+            playerDeath();
+        } else if (catCanMove) {
+            chasePlayer();
+        }
     }
-
-    bool inCatchRange()
-    {
-        return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
-    }
-
-	public bool ghostRange()
-	{
-		return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
-	}
 
     void chasePlayer()
     {
@@ -112,41 +62,50 @@ public class CatChase : MonoBehaviour {
                                          playerTransform.position.y));
     }
 
-    void moveBackToCenter()
+    void playerDeath()
     {
-        if (!atCenter())
+        playerScript.setPlayerDied(true);
+        catCanMove = false;
+        playerScript.anim.SetBool("MouseFell", true);
+        playerScript.allowMovement(false);
+
+        foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Ghost"))
         {
-            agent.SetDestination(new Vector2(centerPoint.x,
-                                             centerPoint.y));
+            gObject.GetComponent<GhostCat>().destroy_cat();
         }
     }
 
-    bool atCenter()
+    bool inRange()
     {
-        return (catTransform.position.x <= centerPoint.x + 0.1f && catTransform.position.x >= centerPoint.x - 0.1f) &&
-               (catTransform.position.y <= centerPoint.y + 0.1f && catTransform.position.y >= centerPoint.y - 0.1f);
+        return Vector3.Distance(playerTransform.position,
+                                catTransform.position) <= range;
     }
 
-    void SetDestination()
+    bool inCatchRange()
     {
-        if (catTransform.position.y == originWaypoint.y - 0.1f)
-        {
-            agent.SetDestination(waypoint);
-        }
-        else {
-            agent.SetDestination(originWaypoint);
-        }
+        bool inRange = Vector3.Distance(playerTransform.position,
+                                        catTransform.position) <= catchRange;
+        Debug.Log("Is Mouse in Range? " + inRange);
+        return inRange;
     }
 
     void OnEnable()
     {
-        agent.OnDestinationReached += SetDestination;
-        agent.OnDestinationInvalid += SetDestination;
+        agent.OnDestinationReached += SetWaypoint;
+        agent.OnDestinationInvalid += SetWaypoint;
     }
 
     void OnDisable()
     {
-        agent.OnDestinationInvalid -= SetDestination;
-        agent.OnDestinationReached -= SetDestination;
+        agent.OnDestinationReached -= SetWaypoint;
+        agent.OnDestinationInvalid -= SetWaypoint;
+    }
+
+    void SetWaypoint()
+    {
+        if (rand.Next(0, 2) == 1)
+            agent.SetDestination(originWaypoint);
+        else
+            agent.SetDestination(waypoint);
     }
 }

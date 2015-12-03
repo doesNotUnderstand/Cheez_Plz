@@ -3175,9 +3175,9 @@ MonoBehaviour:
   rotateSpeed: 350
   avoidRadius: 0
   lookAheadDistance: 1
-  repath: 0
+  repath: 1
   restrict: 0
-  closerPointOnInvalid: 0
+  closerPointOnInvalid: 1
   debugPath: 1
 --- !u!114 &1989731578
 MonoBehaviour:
@@ -3190,14 +3190,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0329cc26ea4932f4f9f7969cf848cb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  playerScript: {fileID: 0}
-  centerPoint: {x: 1, y: -1.25, z: 0}
-  catSpeed: 0
-  range: 0
-  catchRange: 0
+  playerTransform: {fileID: 1273825741}
+  playerScript: {fileID: 1273825742}
+  centerPoint: {x: 0, y: 0, z: 0}
+  catSpeed: 3.29999995
+  range: 4
+  catchRange: 1
   textBox: {fileID: 0}
-  patrol: 1
+  patrol: 0
   waypoint: {x: 1, y: 1}
 --- !u!1 &1994928271
 GameObject:

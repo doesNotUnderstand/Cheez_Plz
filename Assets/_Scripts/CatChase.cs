@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// #define DEBUG
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +45,10 @@ public class CatChase : MonoBehaviour {
         originWaypoint = new Vector2(catTransform.position.x,
                                      catTransform.position.y);
         agent.SetDestination(waypoint);
+
+#if DEBUG
         Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
+#endif // DEBUG
     }
 
     void Update()

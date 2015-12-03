@@ -30,7 +30,7 @@ public class CatChase_ : MonoBehaviour {
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
 
     // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
-    public bool patrol;
+    public bool patrol = false;
     public Vector2 waypoint = new Vector2();
     Vector2 originWaypoint = new Vector2();
 

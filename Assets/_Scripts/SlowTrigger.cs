@@ -2,9 +2,12 @@
 using System.Collections;
 
 public class SlowTrigger : MonoBehaviour {
-	GameObject target;
+
+    public float stickyRadius = 1.5f;
+    public GameObject target;
 	float o_speed;
 	bool sticking = false;
+
 	IEnumerator speed_up()
 	{
 		target.GetComponent<playerController> ().set_speed (3.5f * 1.75f);
@@ -26,7 +29,7 @@ public class SlowTrigger : MonoBehaviour {
 		if (sticking) 
 		{
 			float distance = Vector2.Distance(gameObject.transform.position, target.transform.position);
-			if(distance > 1.5)
+			if(distance > stickyRadius)
 			{
 				sticking = false;
 				StartCoroutine(speed_up());

@@ -5,11 +5,15 @@ public class cheeseCollider : MonoBehaviour {
 
     // If the player is in cheese range, he is able to
     // hold the mouse button to carry the cheese
+    public bool resetsOnSpawn;
+
+    public Vector2 initPosition;
     bool inCheeseRange;
 
 	// Use this for initialization
 	void Start () 
     {
+        initPosition = GetComponent<Transform>().position;
         inCheeseRange = false;
 	}
 
@@ -33,5 +37,11 @@ public class cheeseCollider : MonoBehaviour {
     public bool getCheeseRange()
     {
         return inCheeseRange;
+    }
+
+    // Return the cheese to initial position
+    public void resetPosition()
+    {
+        this.GetComponent<Transform>().position = initPosition;
     }
 }

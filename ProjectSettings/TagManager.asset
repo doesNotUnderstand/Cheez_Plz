@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trap
+  - Box
   - New Tag
+  - Ghost
+  - DestroyBullet
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
+  - Pit
   - Player
   - PickUpObjects
   - MapUI
-  - 
   - 
   - 
   - 
@@ -43,12 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Pit
     uniqueID: 1281642601
     locked: 0
-  - name: PickUpObjects
+  - name: Player
     uniqueID: 2330578779
     locked: 0
-  - name: MapUI
+  - name: PickUpObjects
     uniqueID: 4189807521
+    locked: 0
+  - name: MapUI
+    uniqueID: 2898359203
     locked: 0

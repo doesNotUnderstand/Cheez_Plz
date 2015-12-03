@@ -9,7 +9,7 @@ public class GateCollider : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.name == "Mouse" && playerScript.playerHasGateKey())
-        {
+        {            
             // Open the Gate
             playerScript.playerKeyState(false);
             Destroy(gateObject);

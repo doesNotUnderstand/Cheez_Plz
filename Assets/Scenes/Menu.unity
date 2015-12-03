@@ -759,6 +759,7 @@ GameObject:
   - 92: {fileID: 620872253}
   - 124: {fileID: 620872252}
   - 81: {fileID: 620872251}
+  - 114: {fileID: 620872256}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -833,6 +834,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &620872256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 620872250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2b1eefbec214d70a82e777241ccb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialRecord: 3c0000005000000064000000
+  firstRecord: 78000000f00000002c010000
+  secondRecord: 2c010000e001000058020000
 --- !u!1 &788512946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1386,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -.959999979, y: -.830001831}
+  m_AnchoredPosition: {x: .129999995, y: -.830001831}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1119306896
@@ -1447,7 +1462,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5519408b2b70f26468c617d74dd7d6b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b77f09a8dd789aa458a404615b586e1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1496,7 +1511,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 1.44000006, y: -.830001831}
+  m_AnchoredPosition: {x: 2.67000008, y: -.870000005}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1308308229
@@ -1673,6 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da032f340848644ba763c94f6ec69cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 620872256}
   startButton: {fileID: 1452572122}
   continueButton: {fileID: 1988497908}
   settingsButton: {fileID: 1054596958}
@@ -1687,6 +1703,10 @@ MonoBehaviour:
   level1Button: {fileID: 1119306894}
   level2Button: {fileID: 1308308227}
   level3Button: {fileID: 1885773922}
+  cheeseZero: {fileID: 21300000, guid: 8efe4f0b1da205b46905d9440158efd6, type: 3}
+  cheeseOne: {fileID: 21300000, guid: 5519408b2b70f26468c617d74dd7d6b3, type: 3}
+  cheeseTwo: {fileID: 21300000, guid: 1ce3bb88bebc00b419113e79229e2cf1, type: 3}
+  cheeseThree: {fileID: 21300000, guid: b77f09a8dd789aa458a404615b586e1f, type: 3}
 --- !u!1 &1355280652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,7 +2769,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -3.38000011, y: -.829999983}
+  m_AnchoredPosition: {x: -2.42000008, y: -.829999983}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1837328385

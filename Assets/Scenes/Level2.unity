@@ -4353,7 +4353,7 @@ Prefab:
     - target: {fileID: 11430538, guid: 43796a08d1c2fb14e826e82a9cf5b0c3, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1125113888}
     - target: {fileID: 2011994, guid: 43796a08d1c2fb14e826e82a9cf5b0c3, type: 2}
       propertyPath: m_BackGroundColor.r
       value: .395545006
@@ -4968,6 +4968,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 731a17b44401e724b8b07e7c7c560904, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1125113888 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 416160, guid: 7ae195f2eb5621248afe4a8efde67769, type: 2}
+  m_PrefabInternal: {fileID: 1818652262}
 --- !u!1001 &1132443483
 Prefab:
   m_ObjectHideFlags: 0

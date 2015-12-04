@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: mouseRight
+  m_Name: fix_mouseRight
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -15,19 +15,45 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
-  m_SampleRate: 60
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 14c79ed70dcc25c43a294733db827513, type: 3}
+    - time: .0833333358
+      value: {fileID: 21300000, guid: 560272b33b298b048bb95e08ced37ce3, type: 3}
+    - time: .166666672
+      value: {fileID: 21300000, guid: 3f8d83992bc01954eaa54f113964f9f4, type: 3}
+    - time: .25
+      value: {fileID: 21300000, guid: 69cb790a4b1e6f741a566c1592347b4b, type: 3}
+    - time: .333333343
+      value: {fileID: 21300000, guid: 66b09990d32c30e4aaaf123fb3366eb0, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - path: 0
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 14c79ed70dcc25c43a294733db827513, type: 3}
+    - {fileID: 21300000, guid: 560272b33b298b048bb95e08ced37ce3, type: 3}
+    - {fileID: 21300000, guid: 3f8d83992bc01954eaa54f113964f9f4, type: 3}
+    - {fileID: 21300000, guid: 69cb790a4b1e6f741a566c1592347b4b, type: 3}
+    - {fileID: 21300000, guid: 66b09990d32c30e4aaaf123fb3366eb0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: .416666687
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

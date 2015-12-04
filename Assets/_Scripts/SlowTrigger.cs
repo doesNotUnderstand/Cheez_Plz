@@ -8,6 +8,10 @@ public class SlowTrigger : MonoBehaviour {
 	float o_speed;
 	bool sticking = false;
 
+    public mainCameraScript cameraScript;
+    public Texture textureBubbleGum;
+    private DrawScreen drawBubbleGum;
+
 	IEnumerator speed_up()
 	{
 		target.GetComponent<playerController> ().set_speed (3.5f * 1.75f);
@@ -22,8 +26,17 @@ public class SlowTrigger : MonoBehaviour {
 			sticking = true;
 			o_speed = target.GetComponent<playerController>().get_speed();
 			target.GetComponent<playerController>().set_speed(1.2f);
-		}
+
+            drawBubbleGum = new DrawScreen("",textureBubbleGum,30,true);
+            cameraScript.addDrawingToScreen(drawBubbleGum);
+        }
 	}
+
+    void OnTriggerExit2D(Collider2D other) {
+        cameraScript.deleteDrawingOfScreen(drawBubbleGum);
+        drawBubbleGum = null;
+    }
+
 	void Update () 
 	{
 		if (sticking) 

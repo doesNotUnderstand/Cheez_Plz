@@ -10,6 +10,7 @@ public class winCollider : MonoBehaviour {
     public GameObject scoreMenu; // Manage the score display
     public mainCameraScript timerScript; // To stop time when player wins
     public Sprite cheeseRating; // Image of colored cheese
+    public cutSceneManager sceneManager;
     public bool dimLights = false;
     public int menuDelay;
     public int level = 0;    
@@ -91,8 +92,16 @@ public class winCollider : MonoBehaviour {
     // To wait certain amount of seconds and return player to main menu
     IEnumerator returnToMenu()
     {
-        yield return new WaitForSeconds(menuDelay);		
-        Application.LoadLevel("Menu");
+        yield return new WaitForSeconds(menuDelay);
+        		
+        if(sceneManager)
+        {
+            sceneHolder.scene = Application.loadedLevel - 1;
+            sceneHolder.loadScene = true;            
+            Application.LoadLevel("CutScene");
+        }
+        else
+            Application.LoadLevel("Menu");
     }
 
     // Change cheese images depending on cheese rating

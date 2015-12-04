@@ -37,15 +37,16 @@ public class pit_activator : MonoBehaviour {
 		c24,c25,c26,c27,c28,c29,c30;
 	public float timer;
 	bool controller_on;
+	bool puzzle_done;
 	void Start()
 	{
 		timer = 0;
 		controller_on = false;
-
+		puzzle_done = false;
 	}
 	void OnTriggerEnter2D(Collider2D c)
 	{
-		if (!controller_on)
+		if (!controller_on && !puzzle_done)
 		{
 			controller_on = !controller_on;
 			gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -83,6 +84,7 @@ public class pit_activator : MonoBehaviour {
 	}
 	public void toggle_controller()
 	{
+		puzzle_done = true;
 		controller_on = false;
 		timer = 0;
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Controller"))

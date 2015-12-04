@@ -19,7 +19,7 @@ public class fillable_pit : MonoBehaviour {
 			filled = true;
 			c.gameObject.GetComponent<Box_Grab>().attached = true;
 		} 
-		else if(c.name == "Mouse")
+		else if(c.gameObject.name == "Mouse")
 		{
 			playerScript.anim.SetBool("MouseFell", true);
 			playerScript.allowMovement(false);

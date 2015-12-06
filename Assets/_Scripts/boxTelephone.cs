@@ -37,7 +37,7 @@ public class boxTelephone : MonoBehaviour {
 
         int i;
         for (i = 0; i < sizePassword; i++) {
-            print(correctSequence[selectedPass,i]);
+            //print(correctSequence[selectedPass,i]);
         }
     }
 

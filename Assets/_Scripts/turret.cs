@@ -3,7 +3,7 @@ using System.Collections;
 
 public class turret : MonoBehaviour
 {
-
+    public GameObject door1, door2, door3;
     public GameObject cheeseBullet;
     public playerController playerScript;
     public float delay;
@@ -11,6 +11,8 @@ public class turret : MonoBehaviour
     public Vector2 bulletSpeed;    
     public Vector2 spawnPosition;
     public int bulletPattern;
+    public bool startShooting;
+
     AudioSource audio;
 
     bool shootingBullet;
@@ -18,6 +20,7 @@ public class turret : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        startShooting = false;
         shootingBullet = false;
         audio = GetComponent<AudioSource>();
         //spawnPosition = GetComponent<Transform>().position;
@@ -26,7 +29,11 @@ public class turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!shootingBullet)
+        if (!startShooting)
+        {
+            checkShooting();
+        }            
+        else if(!shootingBullet)
         {
             if (bulletPattern == 1)
                 StartCoroutine(shootBall1());
@@ -35,8 +42,12 @@ public class turret : MonoBehaviour
             else if (bulletPattern == 3)
                 StartCoroutine(shootBall3());
         }
+    }
 
-
+    void checkShooting()
+    {
+        if (!door1 && !door2 && !door3)
+            startShooting = true;
     }
 
     IEnumerator shootBall1()

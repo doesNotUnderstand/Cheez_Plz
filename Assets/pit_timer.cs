@@ -20,7 +20,7 @@ public class pit_timer : MonoBehaviour {
 	}
 	public void turn_off()
 	{
-		pit_active = true;
+		pit_active = false;
 		pit_invisible_time = 0;
 		pit.gameObject.SetActive(pit_active);
 	}

@@ -9,24 +9,26 @@ public class GateCollider : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == "Mouse" && playerScript.playerHasGateKey())
-        {            
-            // Open the Gate
-            if (!locked.isPlaying && gateObject)
-            {
-                open.Play();
-            }
-            playerScript.playerKeyState(false);
-            Destroy(gateObject);
-        }
-        else
+        if(other.name == "Mouse")
         {
-            // Play locked gate sound here, possibly gate rattle animation
-            if (!open.isPlaying && gateObject)
+            if (playerScript.playerHasGateKey())
             {
-                locked.Play();
+                // Open the Gate
+                if (!locked.isPlaying && gateObject)
+                {
+                    open.Play();
+                }
+                playerScript.playerKeyState(false);
+                Destroy(gateObject);
             }
-        }
-        
+            else
+            {
+                // Play locked gate sound here, possibly gate rattle animation
+                if (!open.isPlaying && gateObject)
+                {
+                    locked.Play();
+                }
+            }            
+        }                
     }
 }

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StunDetector : MonoBehaviour {
 
+    public float stunTime = 2.0f;
+
     AudioSource audio;
     bool isDestroy = false;
 
@@ -27,7 +29,7 @@ public class StunDetector : MonoBehaviour {
             }
             float o_speed = c.gameObject.GetComponent<playerController>().get_speed();
             c.gameObject.GetComponent<playerController>().set_speed(0);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(stunTime);
             c.gameObject.GetComponent<playerController>().set_speed(o_speed);
             isDestroy = true;
         }

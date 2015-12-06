@@ -11,6 +11,7 @@ public class turret : MonoBehaviour
     public Vector2 bulletSpeed;    
     public Vector2 spawnPosition;
     public int bulletPattern;
+    AudioSource audio;
 
     bool shootingBullet;
 
@@ -18,6 +19,7 @@ public class turret : MonoBehaviour
     void Start()
     {
         shootingBullet = false;
+        audio = GetComponent<AudioSource>();
         //spawnPosition = GetComponent<Transform>().position;
     }
 
@@ -41,6 +43,7 @@ public class turret : MonoBehaviour
     {
         shootingBullet = true;        
         GameObject bullet1 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet1.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet1.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(delay);
@@ -51,10 +54,12 @@ public class turret : MonoBehaviour
     {
         shootingBullet = true;        
         GameObject bullet1 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet1.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet1.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(miniDelay);
         GameObject bullet2 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet2.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet2.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(delay);
@@ -65,14 +70,17 @@ public class turret : MonoBehaviour
     {
         shootingBullet = true;        
         GameObject bullet1 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet1.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet1.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(miniDelay);
         GameObject bullet2 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet2.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet2.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(miniDelay);
         GameObject bullet3 = Instantiate(cheeseBullet, new Vector3(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity) as GameObject;
+        audio.Play();
         bullet3.GetComponent<Transform>().parent = GetComponent<Transform>();
         bullet3.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
         yield return new WaitForSeconds(delay);

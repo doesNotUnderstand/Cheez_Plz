@@ -72,13 +72,14 @@ public class mainCameraScript : MonoBehaviour {
     private int numberItem_Left, numberItem_Right, numberItem_Timer, sumWidth_Right, sumWidth_Left, sumWidth_Timer;
     private string firstDigitTimer, secondDigitTimer, thirdDigitTimer, fourDigitTimer;  
     private Vector3 startPoint;
+    public AudioSource source;
 
 
     void Start () {
         levelTime = 0; numberItem_Right = 0; numberItem_Left = 0; sumWidth_Right = 0; sumWidth_Left = 0;
         updateTime = true;
         textureScreen = new List<DrawScreen>();
-
+        source = GetComponent<AudioSource>();
     }
 	
 	void Update () {
@@ -246,4 +247,13 @@ public class mainCameraScript : MonoBehaviour {
         textureScreen.Remove(deleteDraw);
     }
 
+    public void PlayMusic()
+    {
+        source.Play();
+    }
+
+    public void StopMusic()
+    {
+        source.Stop();
+    }
 }

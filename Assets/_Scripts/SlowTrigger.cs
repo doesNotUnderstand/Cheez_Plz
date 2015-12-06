@@ -2,16 +2,10 @@
 using System.Collections;
 
 public class SlowTrigger : MonoBehaviour {
-
-    public float stickyRadius = 1.5f;
-    public GameObject target;
+	GameObject target;
 	float o_speed;
 	bool sticking = false;
-
-    public mainCameraScript cameraScript;
-    public Texture textureBubbleGum;
-    private DrawScreen drawBubbleGum;
-
+    AudioSource audio;
 	IEnumerator speed_up()
 	{
 		target.GetComponent<playerController> ().set_speed (3.5f * 1.75f);
@@ -22,27 +16,23 @@ public class SlowTrigger : MonoBehaviour {
 	{
 		if (c.gameObject.name == "Mouse") 
 		{
+            audio = GetComponent<AudioSource>();
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
 			target = c.gameObject;
 			sticking = true;
 			o_speed = target.GetComponent<playerController>().get_speed();
 			target.GetComponent<playerController>().set_speed(1.2f);
-
-            drawBubbleGum = new DrawScreen("",textureBubbleGum,30,true);
-            cameraScript.addDrawingToScreen(drawBubbleGum);
-        }
+		}
 	}
-
-    void OnTriggerExit2D(Collider2D other) {
-        cameraScript.deleteDrawingOfScreen(drawBubbleGum);
-        drawBubbleGum = null;
-    }
-
 	void Update () 
 	{
 		if (sticking) 
 		{
 			float distance = Vector2.Distance(gameObject.transform.position, target.transform.position);
-			if(distance > stickyRadius)
+			if(distance > 1.5)
 			{
 				sticking = false;
 				StartCoroutine(speed_up());

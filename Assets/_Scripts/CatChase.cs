@@ -1,7 +1,25 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿#define ENABLE_ANIMATION
 
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
+[RequireComponent(typeof(PolyNavAgent))]
 public class CatChase : MonoBehaviour {
+
+    private PolyNavAgent _agent;
+    public PolyNavAgent agent
+    {
+        get
+        {
+            if (!_agent)
+                _agent = GetComponent<PolyNavAgent>();
+            return _agent;
+        }
+    }
+
+    private const bool DEBUG = false;
 
     public Transform playerTransform;
     public playerController playerScript;
@@ -11,170 +29,228 @@ public class CatChase : MonoBehaviour {
     public float catchRange = 0.0f; // The range where the cat catches the mouse
     public EventText textBox; // In case the cat needs to display a textBox
     Transform catTransform;
-    bool catCanMove;
+    bool catCanMove = true;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
+    Vector2 lastPosition;
 
-    public GameObject bigCollider;
-    private bool bigColliderIsActive = false;
-    private AudioSource source;
-    private AudioSource backgroundMusic;
+    public Animator anim;
+
+    // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
+    public bool patrol;
+    public Vector2 waypoint = new Vector2();
+    Vector2 originWaypoint = new Vector2();
+
+    System.Random rand = new System.Random();
+
+    enum Direction { Down, Left, Up, Right };
 
     // Use this for initialization
-    void Start () 
+    void Awake()
     {
         catTransform = GetComponent<Transform>();
-        catCanMove = true;
-        bigCollider.SetActive(bigColliderIsActive);
-        source = GetComponent<AudioSource>();
-        backgroundMusic = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+
+        if (DEBUG)
+            Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
     }
-	
-	// Update is called once per frame
-	void Update () 
+
+    void Start()
     {
-        if (!source.isPlaying)
-            if (!backgroundMusic.isPlaying)
-            {
-                backgroundMusic.Play();
-            }
+        lastPosition = new Vector2(catTransform.position.x,
+                                   catTransform.position.y);
+        originWaypoint = new Vector2(catTransform.position.x,
+                                     catTransform.position.y);       
 
-        if (inCatchRange())
-        {
-			playerScript.setPlayerDied(true);
-			catCanMove = false;
-            playerScript.anim.SetBool("MouseFell", true);
-            playerScript.allowMovement(false);
-
-            playerScript.setPlayerDied(true);
-			foreach(GameObject g in GameObject.FindGameObjectsWithTag("Ghost"))
-			{
-				g.GetComponent<GhostCat>().destroy_cat();
-			}
-
-            StartCoroutine(waitThenReturn());
+        if (patrol)
+        {            
+            agent.SetDestination(waypoint);
         }
+    }
 
-        if (catCanMove)
-        {
-            if (inRange() && (!playerScript.playerIsCrouching() || alreadyChasing))
+    void FixedUpdate()
+    {
+        if (inKillRange()) {
+            playerDeath();
+        }
+        else if (catCanMove) {
+            if (inVisibleRange() &&
+                (!playerScript.playerIsCrouching() || !alreadyChasing))
             {
-                textBox.changeTimedText("!", 10.0f);
+                Debug.Log("Chasing player");
                 chasePlayer();
             }
-            else
+            else if (!patrol)
             {
-                alreadyChasing = false;
-                moveBackToCenter();
+                agent.SetDestination(originWaypoint);
             }
         }
 
-        //This SHould be Change
-        if (Input.GetKeyDown(KeyCode.B)) {
-            if (bigColliderIsActive)
-            {
-                bigColliderIsActive = !bigColliderIsActive;
-                bigCollider.SetActive(bigColliderIsActive);
-            }
-            else {
-                bigColliderIsActive = !bigColliderIsActive;
-                bigCollider.SetActive(bigColliderIsActive);
-            }
-           
-        }
+        Vector2 currentDirection = new Vector2(catTransform.position.x,
+                                               catTransform.position.y);
+        handlePlayerAnimations(direction(currentDirection));
+        lastPosition = currentDirection;
 
+        if (DEBUG)
+            Debug.Log("Cat is Sleeping? " + anim.GetBool("Sleeping"));
+    }
 
-	}
-
-    // Return whether the mouse is in cat's range
-    bool inRange()
+    Vector2 direction(Vector2 currentPosition)
     {
-        return Vector3.Distance(playerTransform.position, centerPoint) <= range;
+        Vector2 heading, direction;
+        if (currentPosition != lastPosition)
+        {
+            heading = currentPosition - lastPosition;
+            direction = heading / heading.magnitude;
+        }
+        else
+        {
+            direction = new Vector2(0f, 0f);
+        }
+        return direction;
+    }
+
+    void chasePlayer()
+    {
+        alreadyChasing = true;
+        agent.SetDestination(new Vector2(playerTransform.position.x,
+                                         playerTransform.position.y));
     }
 
     IEnumerator waitThenReturn()
     {
-        yield return new WaitForSeconds(3);
-        catCanMove = true;
+        yield return new WaitForSeconds(3);        
+        catCanMove = true;        
     }
 
-    bool inCatchRange()
+    void playerDeath()
     {
-        return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
+        playerScript.setPlayerDied(true);
+        alreadyChasing = catCanMove = false;
+        playerScript.anim.SetBool("MouseFell", true);
+        playerScript.allowMovement(false);
+
+        foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Ghost"))
+        {
+            gObject.GetComponent<GhostCat>().destroy_cat();
+        }
+
+        if (!patrol)
+        {
+            agent.SetDestination(originWaypoint);
+        }
+        else
+        {
+            agent.SetDestination(nearestWaypoint(new Vector2(catTransform.position.x,
+                                                             catTransform.position.y)));
+        }
+        StartCoroutine(waitThenReturn());
     }
 
-	public bool ghostRange()
-	{
-		return Vector3.Distance(playerTransform.position, catTransform.position) <= catchRange;
-	}
-
-    void chasePlayer()
+    Vector2 nearestWaypoint(Vector2 currentPosition)
     {
-        if (!source.isPlaying)
+        Vector2 nearestWaypoint;
+
+        if (Vector2.Distance(currentPosition, originWaypoint) <=
+            Vector2.Distance(currentPosition, waypoint))
         {
-            source.Play();
-            backgroundMusic.Stop();
+            nearestWaypoint = originWaypoint;
+        }
+        else
+        {
+            nearestWaypoint = waypoint;
         }
 
-        alreadyChasing = true;
-        if(playerTransform.position.x < centerPoint.x)
-        {
-            catTransform.position = new Vector3(catTransform.position.x - catSpeed * Time.deltaTime,
-                                                catTransform.position.y, catTransform.position.z);
-        }
-        else if(playerTransform.position.x > centerPoint.x)
-        {
-            catTransform.position = new Vector3(catTransform.position.x + catSpeed * Time.deltaTime,
-                                                catTransform.position.y, 0);
-        }
-
-        if(playerTransform.position.y < centerPoint.y)
-        {
-            catTransform.position = new Vector3(catTransform.position.x,
-                                                catTransform.position.y - catSpeed * Time.deltaTime, 0);
-        }
-        else if (playerTransform.position.y > centerPoint.y)
-        {
-            catTransform.position = new Vector3(catTransform.position.x,
-                                                catTransform.position.y + catSpeed * Time.deltaTime, 0);
-        }  
+        return nearestWaypoint;
     }
 
-    void moveBackToCenter()
+    bool inVisibleRange()
     {
-        if (!source.isPlaying)
-            if (!backgroundMusic.isPlaying)
-            {
-                backgroundMusic.Play();
-            }
-        if (!atCenter())
-        {
-            if (catTransform.position.x > centerPoint.x)
-            {
-                catTransform.position = new Vector3(catTransform.position.x - catSpeed * Time.deltaTime,
-                                                    catTransform.position.y, catTransform.position.z);
-            }
-            else if (catTransform.position.x < centerPoint.x)
-            {
-                catTransform.position = new Vector3(catTransform.position.x + catSpeed * Time.deltaTime,
-                                                    catTransform.position.y, 0);
-            }
-
-            if (catTransform.position.y > centerPoint.y)
-            {
-                catTransform.position = new Vector3(catTransform.position.x,
-                                                    catTransform.position.y - catSpeed * Time.deltaTime, 0);
-            }
-            else if (catTransform.position.y < centerPoint.y)
-            {
-                catTransform.position = new Vector3(catTransform.position.x,
-                                                    catTransform.position.y + catSpeed * Time.deltaTime, 0);
-            }
-        }
+        return Vector3.Distance(playerTransform.position,
+                                catTransform.position) <= range;
     }
 
-    bool atCenter()
+    bool inKillRange()
     {
-        return (catTransform.position.x <= centerPoint.x + 0.1f && catTransform.position.x >= centerPoint.x - 0.1f) &&
-               (catTransform.position.y <= centerPoint.y + 0.1f && catTransform.position.y >= centerPoint.y - 0.1f);
+        bool inRange = Vector3.Distance(playerTransform.position,
+                                        catTransform.position) <= catchRange;
+
+        if (DEBUG)
+            Debug.Log("Is Mouse in Range? " + inRange);
+
+        return inRange;
+    }
+
+    void OnEnable()
+    {
+        agent.OnDestinationReached += SetWaypoint;
+        agent.OnDestinationInvalid += SetWaypoint;
+    }
+
+    void OnDisable()
+    {
+        agent.OnDestinationReached -= SetWaypoint;
+        agent.OnDestinationInvalid -= SetWaypoint;
+    }
+
+    void SetWaypoint()
+    {        
+        if (patrol)
+        {
+            if (rand.Next(0, 2) == 1)
+                agent.SetDestination(originWaypoint);
+            else
+                agent.SetDestination(waypoint);
+        }
+        else
+        {
+            agent.Stop();            
+        }
+    }
+     
+    void handlePlayerAnimations(Vector2 direction)
+    {      
+        // Calculate the primary direction.
+        var x = direction.x;
+        var y = direction.y;
+
+        // Debug.Log("Cat Direction: (" + x + ", " + y + ")");
+
+        if (x == 0 && y == 0)
+        {
+            anim.SetBool("Sleeping", true);            
+            return;
+        }
+        else
+        {
+            anim.SetBool("Sleeping", false);
+            anim.SetInteger("Direction", (int)Direction.Left);
+        }
+        
+        if (Mathf.Abs(x) < Mathf.Abs(y))
+        {
+            if (y < 0)
+            {
+                anim.SetInteger("Direction", (int)Direction.Down);
+                Debug.Log("Moving Down");
+            }
+            else
+            {
+                anim.SetInteger("Direction", (int)Direction.Up);
+                Debug.Log("Moving Up");
+            }
+        }
+        else
+        {
+            if (x < 0)
+            {
+                anim.SetInteger("Direction", (int)Direction.Left);                
+                Debug.Log("Moving Left");
+            }
+            else
+            {
+                anim.SetInteger("Direction", (int)Direction.Right);                
+                Debug.Log("Moving Right");
+            }
+        }        
     }
 }

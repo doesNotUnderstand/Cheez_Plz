@@ -5,12 +5,16 @@ public class haste : MonoBehaviour {
 	GameObject target;
 	bool speed_up = false;
 	float o_speed;
+    AudioSource audio;
 
 	IEnumerator OnTriggerEnter2D(Collider2D c)
 	{
 		if (c.name == "Mouse" && !speed_up) 
 		{
-			target = c.gameObject;
+
+            audio = GetComponent<AudioSource>();
+            audio.Play();
+            target = c.gameObject;
 			speed_up = true;
 			o_speed = target.GetComponent<playerController> ().get_speed ();
 			target.GetComponent<playerController> ().set_speed (o_speed * 1.5f);

@@ -10,12 +10,16 @@ public class cheeseBall : MonoBehaviour {
     bool moving;
     Transform cheeseBallTransform;
     Vector2 startingPosition;
+    private AudioSource source;
+    private AudioSource backgroundMusic;
 
 	// Use this for initialization
 	void Start ()
     {
         cheeseBallTransform = GetComponent<Transform>();
         startingPosition = cheeseBallTransform.position;
+        source = GetComponent<AudioSource>();
+        backgroundMusic = GameObject.Find("Main Camera").GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -27,6 +31,12 @@ public class cheeseBall : MonoBehaviour {
     public void setMove()
     {
         moving = true;
+       // source.Stop();
+        if (!source.isPlaying)
+        {
+            backgroundMusic.Stop();
+            source.Play();
+        }
     }
 
     public bool ballIsMoving()
@@ -38,6 +48,8 @@ public class cheeseBall : MonoBehaviour {
     {
         moving = false;
         cheeseBallTransform.position = startingPosition;
+        source.Stop();
+        backgroundMusic.Play();
     }
 
     void MoveToTarget()

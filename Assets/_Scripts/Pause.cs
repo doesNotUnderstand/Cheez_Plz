@@ -8,11 +8,13 @@ public class Pause : MonoBehaviour {
 	public GameObject second_menu;
 	public GameObject minimap;
 	bool paused = false;
+    private AudioSource audio;
 	void Start()
 	{
 		menu.SetActive(false);
 		second_menu.SetActive(false);
 		control_img.SetActive(false);
+        audio = GetComponent<AudioSource>();
 	}
 	public void ctrl()
 	{
@@ -34,7 +36,7 @@ public class Pause : MonoBehaviour {
 	}
 	public void goto_menu()
 	{
-		Time.timeScale = 1;
+        Time.timeScale = 1;
 		Application.LoadLevel(0);
 	}
 	public void rstrt()
@@ -45,13 +47,15 @@ public class Pause : MonoBehaviour {
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			if(!paused)
+            if (!paused)
 			{
-				menu.SetActive(true);
+                audio.Play();
+                menu.SetActive(true);
 				Time.timeScale = 0;
 				paused = true;
 				minimap.SetActive(false);
-			}
+                AudioListener.volume = 0.5f;
+            }
 			else
 			{
 				menu.SetActive(false);
@@ -60,6 +64,8 @@ public class Pause : MonoBehaviour {
 				Time.timeScale = 1;
 				paused = false;
 				minimap.SetActive(true);
+                audio.Play();
+                AudioListener.volume = 1.0f;
 			}
 		} 
 	}

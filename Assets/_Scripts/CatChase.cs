@@ -16,6 +16,8 @@ public class CatChase : MonoBehaviour {
 
     public GameObject bigCollider;
     private bool bigColliderIsActive = false;
+    private AudioSource source;
+    private AudioSource backgroundMusic;
 
     // Use this for initialization
     void Start () 
@@ -23,11 +25,19 @@ public class CatChase : MonoBehaviour {
         catTransform = GetComponent<Transform>();
         catCanMove = true;
         bigCollider.SetActive(bigColliderIsActive);
+        source = GetComponent<AudioSource>();
+        backgroundMusic = GameObject.Find("Main Camera").GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
 	void Update () 
     {
+        if (!source.isPlaying)
+            if (!backgroundMusic.isPlaying)
+            {
+                backgroundMusic.Play();
+            }
+
         if (inCatchRange())
         {
 			playerScript.setPlayerDied(true);
@@ -99,6 +109,12 @@ public class CatChase : MonoBehaviour {
 
     void chasePlayer()
     {
+        if (!source.isPlaying)
+        {
+            source.Play();
+            backgroundMusic.Stop();
+        }
+
         alreadyChasing = true;
         if(playerTransform.position.x < centerPoint.x)
         {
@@ -125,6 +141,11 @@ public class CatChase : MonoBehaviour {
 
     void moveBackToCenter()
     {
+        if (!source.isPlaying)
+            if (!backgroundMusic.isPlaying)
+            {
+                backgroundMusic.Play();
+            }
         if (!atCenter())
         {
             if (catTransform.position.x > centerPoint.x)

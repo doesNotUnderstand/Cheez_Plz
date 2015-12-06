@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour {
 
     //Public Scripts
     public cheeseCollider cheeseScript;    
+	public Box_Grab boxScript;
 
     Transform playerTransform;
     SpriteRenderer mouseSprite;
@@ -21,8 +22,13 @@ public class playerController : MonoBehaviour {
     bool playerHasKey;
     bool playerDied;
     bool isCrouching;    
+
     // For decoupling the player movement - Other scripts can move the character if needed
     bool playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
+
+    //audio
+
+    public AudioSource walk, sneak, push, grab, die, cheese, putDown;
 
     void Start()
     {
@@ -33,6 +39,7 @@ public class playerController : MonoBehaviour {
         playerHasKey = false; // Initially the player doesn't possess the key
         speed = originalSpeed;                
         mouseSprite = GetComponent<SpriteRenderer>();
+        carryingBox = false;
     }
 
     void FixedUpdate()
@@ -77,18 +84,43 @@ public class playerController : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
-                { 
+                {
+                    if (!cheese.isPlaying)
+                    {
+                        cheese.Play();
+                    }
                     isCarryingCheese = true;
                     speed = 0.75f * originalSpeed;
                 }
-                else if(isCarryingCheese)
-                    isCarryingCheese = false;           
+                else if (isCarryingCheese)
+                {
+                    if (!putDown.isPlaying)
+                    {
+                        putDown.Play();
+                    }
+                    isCarryingCheese = false;
+                }          
             }
             playerCarryCheese();
 
 			//Pick up the box, press interact to carry box
+			if(Input.GetKeyDown(KeyCode.E))
+			{
+				if(boxScript && !isCarryingCheese && !carryingBox && boxScript.getBoxRange() && !playerInsidePipe)
+				{
+					carryingBox = true;
 
-
+				}
+				else if(carryingBox)
+				{
+					carryingBox = false;
+                    if (!putDown.isPlaying)
+                    {
+                        putDown.Play();
+                    }
+				}
+				carry_the_box();
+			}
 
             // Return player to normal speed if not crouching or holding cheese
             if (!isCrouching && !isCarryingCheese)
@@ -143,17 +175,8 @@ public class playerController : MonoBehaviour {
     // Sets whether the player died or not
     public void setPlayerDied(bool died)
     {
-        if(died)
-        {
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Box"))
-            {
-                g.gameObject.GetComponent<Box_Grab>().return_to_start();
-            }
-
-            if (cheeseScript.resetsOnSpawn)
-                cheeseScript.resetPosition();
-        }
-		
+        if (!die.isPlaying)
+        die.Play();
         playerDied = died;
     }
 
@@ -171,6 +194,11 @@ public class playerController : MonoBehaviour {
             speed = 0.75f * originalSpeed;
             mouseSprite.color = new Color(1f, 1f, 1f, .5f);
             isCrouching = true;
+            if (!sneak.isPlaying)
+            {
+                sneak.Play();
+            }
+
         }
         else
         {            
@@ -180,38 +208,94 @@ public class playerController : MonoBehaviour {
     }
 
     // This function sets the character to hold the cheese
-	void  playerCarryCheese()
-	{
-		if (isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
-			cheeseScript.transform.position = playerTransform.transform.position;
-		else
-			isCarryingCheese = false;
-	}
+    void  playerCarryCheese()
+    {
+        if (isCarryingCheese && cheeseScript.getCheeseRange() && !playerInsidePipe)
+        {
+            cheeseScript.transform.position = playerTransform.transform.position;
+        }
 
+        else
+            isCarryingCheese = false;
+    }
+	// Same as above but for the box
+	void carry_the_box()
+	{
+		if (boxScript && carryingBox && boxScript.getBoxRange () && !playerInsidePipe) {
+			boxScript.transform.parent = playerTransform.transform;
+            if (!grab.isPlaying)
+            {
+                grab.Play();
+            }
+
+        } 
+		else if(boxScript)
+		{
+			carryingBox = false;
+			boxScript.transform.parent = null;
+		}
+
+	}
     // These functions moves the character and sets the boolean to be used
     // with the handlePlayerAnimations() function
     void moveCharacterLeft()
     {
         playerTransform.position += Vector3.left * speed * Time.deltaTime;
         playerMoveLeft = true;
+        if (!walk.isPlaying && !isCrouching && !carryingBox)
+        {
+            walk.Play();
+        }
+        else if (!push.isPlaying && carryingBox)
+        {
+            push.Play();
+        }
     }
 
     void moveCharacterRight()
     {
         playerTransform.position += Vector3.right * speed * Time.deltaTime;
         playerMoveRight = true;
+        if (!walk.isPlaying && !isCrouching && !carryingBox)
+        {
+            walk.Play();
+        }
+        else if (!push.isPlaying && carryingBox)
+        {
+            push.Play();
+        }
     }
 
     void moveCharacterUp()
     {
         playerTransform.position += Vector3.up * speed * Time.deltaTime;
         playerMoveUp = true;
+        if (!walk.isPlaying && !isCrouching && !carryingBox)
+        {
+            walk.Play();
+        }
+        else if (!push.isPlaying && carryingBox)
+        {
+            push.Play();
+        }
+    }
+    public void setCarrying(bool set)
+    {
+        carryingBox = set;
     }
 
     void moveCharacterDown()
     {
         playerTransform.position += Vector3.down * speed * Time.deltaTime;
         playerMoveDown = true;
+        if (!walk.isPlaying && !isCrouching && !carryingBox)
+        {
+            walk.Play();
+        }
+        else if (!push.isPlaying && carryingBox)
+        {
+            push.Play();
+        }
     }
 	public float get_speed()
 	{
@@ -221,7 +305,6 @@ public class playerController : MonoBehaviour {
 	{
 		originalSpeed = speed;
 	}
-
     // This function sets the correction animation based on boolean values
     void handlePlayerAnimations()
     {

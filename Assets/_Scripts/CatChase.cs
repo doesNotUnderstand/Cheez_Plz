@@ -26,6 +26,7 @@ public class CatChase : MonoBehaviour {
     public Animator anim;
     private GameObject bigCollider;
     private GameObject smallCollider;
+    private PolyNavAgent polyNav;
 
     public Vector3 centerPoint; // The point from which the distance is calculated
     public float catSpeed; // The cat's speed
@@ -54,6 +55,11 @@ public class CatChase : MonoBehaviour {
 
         bigCollider = catTransform.FindChild("BigCollider").gameObject;
         smallCollider = catTransform.FindChild("SmallCollider").gameObject;
+
+        polyNav = GetComponent<PolyNavAgent>();
+        polyNav.maxSpeed = catSpeed;
+
+        changeColliders(anim.GetBool("Sleeping"));
 
         if (DEBUG)
             Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
@@ -152,7 +158,7 @@ public class CatChase : MonoBehaviour {
 
         foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Ghost"))
         {
-            gObject.GetComponent<GhostCat>().destroy_cat();
+            gObject.GetComponent<GhostCat>().destroyGhostCat();
         }
 
         if (!patrol)

@@ -1,85 +1,72 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class GhostCat: MonoBehaviour {
-	bool ghost_spawned = false;
-	GameObject g = null;
-	GameObject target = null;
-	playerController playerScript;
-	public float x_pos;
-	public float y_pos;
+public class GhostCat : MonoBehaviour
+{
+    GameObject ghostCat, player;
+    public List<Vector2> spawnPoints;
+    public float lifespan = 0;
+    private bool ghostCatHasSpawned = false;
 
-	public float ghost_life_expectancy = 0;
-//	public Transform cat;
-	void OnTriggerEnter2D(Collider2D c)
-	{
-		if (c.name == "Mouse" && !ghost_spawned)
-		{ 
-			target = c.gameObject;
-			//spawn a cat
-			//give it a vector location
-
-			g = Instantiate(Resources.Load("Prefabs/Cat", typeof(GameObject)), 
-			                           new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
-
-			//ai specific section below
-			//may change when we get final ai
-			g.GetComponent<CatChase>().playerScript = GameObject.Find ("Mouse").GetComponent<playerController>();
-			g.GetComponent<CatChase>().playerTransform = GameObject.Find("Mouse").transform;
-			g = Instantiate(Resources.Load<GameObject>("Prefabs/Cat"), 
-			                new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
-
-		//	g = Instantiate(cat, new Vector3(x_pos, y_pos), Quaternion.identity) as GameObject;
-			//ai specific section below
-			//may change when we get final ai
-			g.GetComponent<CatChase>().playerScript = target.GetComponent<playerController>();
-			g.GetComponent<CatChase>().playerTransform = target.transform;
-			g.GetComponent<CatChase>().centerPoint.x = x_pos;
-			g.GetComponent<CatChase>().centerPoint.y = y_pos;
-			g.GetComponent<CatChase>().textBox = GameObject.Find("Text").GetComponent<EventText>();
-			g.GetComponent<CatChase>().range = 120000f;
-			g.GetComponent<CatChase>().catSpeed = 2.15f;
-			//end of ai specific section
-
-			//make the ghost cat slightly transparent
-			g.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-
-			//limit the amount of ghosts this object can spawn to 1
-			ghost_spawned = true;
-		}
-	}
-	/* Destroys the ghost that this object spawned
-	 * allows for a new ghost to spawned if triggered again
-	 */
-	public void destroy_cat()
-	{
-		Destroy(g);
-		ghost_spawned = false;
-	}
-	void Update () 
-	{
-
-		if (ghost_spawned)
-		{
-			ghost_life_expectancy += 3 * Time.deltaTime;
-		}
-
-        //If mouse is not null (mostly here to avoid the console going crazy with errors because target
-        //is only given a value when this object is triggered) and it is caught, destroy
-        //the ghost. Or if the mouse gets too far away, destroy the ghost.
-        if (target != null && target.GetComponent<playerController>().getPlayerDied() && ghost_spawned)
+    void OnTriggerEnter2D (Collider2D collider)
+    {
+        if (collider.name.Equals("Mouse") && !ghostCatHasSpawned)
         {
-            destroy_cat();
+            player = collider.gameObject;
+            Debug.Log("Spawning ghost cat.");
+
+            initGhostCat();        
+        }
+    }
+
+    void initGhostCat()
+    {
+        ghostCatHasSpawned = true;
+
+        ghostCat = Instantiate(Resources.Load("Cat", typeof(GameObject)),
+                               getNearestSpawnPoint(player.transform.position),
+                               Quaternion.identity) as GameObject;
+        ghostCat.name = "Ghost";
+        ghostCat.GetComponent<CatChase>().playerScript = player.GetComponent<playerController>();
+        ghostCat.GetComponent<CatChase>().playerTransform = player.transform;
+        ghostCat.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.45f);
+    }
+
+    void Update()
+    {
+        if (ghostCatHasSpawned)
+        {
+            lifespan += 2 * Time.deltaTime;
         }
 
-        else if (ghost_spawned && Vector2.Distance(g.transform.position, target.transform.position) > 4)
+        if (player != null && player.GetComponent<playerController>().getPlayerDied() && ghostCatHasSpawned)
+            destroyGhostCat();
+        else if (lifespan > 10)
+            destroyGhostCat();
+
+    }
+
+    public bool destroyGhostCat()
+    {
+        Destroy(ghostCat);
+        ghostCatHasSpawned = false;
+        lifespan = 0;
+        return true;
+    }
+
+    Vector3 getNearestSpawnPoint(Vector2 playerPosition)
+    {
+        float distance = 10000;
+        Vector2 spawnHere = new Vector2();
+
+        foreach (Vector2 spawnPoint in spawnPoints)
         {
-            destroy_cat();
+            if (Vector2.Distance(playerPosition, spawnPoint) < distance)
+                spawnHere = spawnPoint;
         }
-        else if (ghost_life_expectancy > 8)
-        {
-            destroy_cat();
-            ghost_life_expectancy = 0;
-        }
-	}
+
+        return new Vector3(spawnHere.x, spawnHere.y);
+    }
 }
+	

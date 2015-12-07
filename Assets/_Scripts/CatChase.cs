@@ -1,6 +1,4 @@
-﻿#define ENABLE_ANIMATION
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -20,9 +18,15 @@ public class CatChase : MonoBehaviour {
     }
 
     private const bool DEBUG = false;
+    private const bool ANIMATION = true;
 
+    // External Controllers
     public Transform playerTransform;
     public playerController playerScript;
+    public Animator anim;
+    private GameObject bigCollider;
+    private GameObject smallCollider;
+
     public Vector3 centerPoint; // The point from which the distance is calculated
     public float catSpeed; // The cat's speed
     public float range = 0.0f; // The set distance to chase the mouse
@@ -31,9 +35,7 @@ public class CatChase : MonoBehaviour {
     Transform catTransform;
     bool catCanMove = true;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
-    Vector2 lastPosition;
-
-    public Animator anim;
+    Vector2 lastPosition;    
 
     // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
     public bool patrol;
@@ -49,6 +51,9 @@ public class CatChase : MonoBehaviour {
     {
         catTransform = GetComponent<Transform>();
         anim = GetComponent<Animator>();
+
+        bigCollider = catTransform.FindChild("BigCollider").gameObject;
+        smallCollider = catTransform.FindChild("SmallCollider").gameObject;
 
         if (DEBUG)
             Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
@@ -69,14 +74,12 @@ public class CatChase : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (inKillRange()) {
-            playerDeath();
-        }
-        else if (catCanMove) {
+        if (catCanMove) {
             if (inVisibleRange() &&
                 (!playerScript.playerIsCrouching() || !alreadyChasing))
             {
-                Debug.Log("Chasing player");
+                if (DEBUG)
+                    Debug.Log("Chasing player");
                 chasePlayer();
             }
             else if (!patrol)
@@ -92,6 +95,24 @@ public class CatChase : MonoBehaviour {
 
         if (DEBUG)
             Debug.Log("Cat is Sleeping? " + anim.GetBool("Sleeping"));
+
+        changeColliders(anim.GetBool("Sleeping"));
+    }
+
+    void changeColliders(bool CatIsSleeping)
+    {
+        if (CatIsSleeping)
+        {
+            smallCollider.SetActive(true);
+            bigCollider.SetActive(false);
+        }
+        else
+        {
+            if (DEBUG)
+                Debug.Log("Chasing Collider: ENABLED");
+            smallCollider.SetActive(false);
+            bigCollider.SetActive(true);
+        }
     }
 
     Vector2 direction(Vector2 currentPosition)
@@ -113,7 +134,7 @@ public class CatChase : MonoBehaviour {
     {
         alreadyChasing = true;
         agent.SetDestination(new Vector2(playerTransform.position.x,
-                                         playerTransform.position.y));
+                                         playerTransform.position.y));        
     }
 
     IEnumerator waitThenReturn()
@@ -146,23 +167,6 @@ public class CatChase : MonoBehaviour {
         StartCoroutine(waitThenReturn());
     }
 
-    Vector2 nearestWaypoint(Vector2 currentPosition)
-    {
-        Vector2 nearestWaypoint;
-
-        if (Vector2.Distance(currentPosition, originWaypoint) <=
-            Vector2.Distance(currentPosition, waypoint))
-        {
-            nearestWaypoint = originWaypoint;
-        }
-        else
-        {
-            nearestWaypoint = waypoint;
-        }
-
-        return nearestWaypoint;
-    }
-
     bool inVisibleRange()
     {
         return Vector3.Distance(playerTransform.position,
@@ -180,6 +184,15 @@ public class CatChase : MonoBehaviour {
         return inRange;
     }
 
+
+    #region == Collision Delegates ==
+    void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        playerDeath();
+    }
+    #endregion
+
+    #region == PolyNav2D Support Methods ==
     void OnEnable()
     {
         agent.OnDestinationReached += SetWaypoint;
@@ -206,7 +219,25 @@ public class CatChase : MonoBehaviour {
             agent.Stop();            
         }
     }
-     
+
+    Vector2 nearestWaypoint(Vector2 currentPosition)
+    {
+        Vector2 nearestWaypoint;
+
+        if (Vector2.Distance(currentPosition, originWaypoint) <=
+            Vector2.Distance(currentPosition, waypoint))
+        {
+            nearestWaypoint = originWaypoint;
+        }
+        else
+        {
+            nearestWaypoint = waypoint;
+        }
+
+        return nearestWaypoint;
+    }
+    #endregion
+
     void handlePlayerAnimations(Vector2 direction)
     {      
         // Calculate the primary direction.
@@ -231,25 +262,29 @@ public class CatChase : MonoBehaviour {
             if (y < 0)
             {
                 anim.SetInteger("Direction", (int)Direction.Down);
-                Debug.Log("Moving Down");
+                if (DEBUG)
+                    Debug.Log("Moving Down");
             }
             else
             {
                 anim.SetInteger("Direction", (int)Direction.Up);
-                Debug.Log("Moving Up");
+                if (DEBUG)
+                    Debug.Log("Moving Up");
             }
         }
         else
         {
             if (x < 0)
             {
-                anim.SetInteger("Direction", (int)Direction.Left);                
-                Debug.Log("Moving Left");
+                anim.SetInteger("Direction", (int)Direction.Left);  
+                if (DEBUG)              
+                    Debug.Log("Moving Left");
             }
             else
             {
-                anim.SetInteger("Direction", (int)Direction.Right);                
-                Debug.Log("Moving Right");
+                anim.SetInteger("Direction", (int)Direction.Right);    
+                if (DEBUG)            
+                    Debug.Log("Moving Right");
             }
         }        
     }

@@ -13,12 +13,12 @@ public class Pause : MonoBehaviour {
 	{
 		menu.SetActive(false);
 		second_menu.SetActive(false);
-		control_img.SetActive(false);
+		//control_img.SetActive(false);
         audio = GetComponent<AudioSource>();
 	}
 	public void ctrl()
 	{
-		control_img.SetActive(true);
+		//control_img.SetActive(true);
 		menu.SetActive(false);
 		second_menu.SetActive(true);
 	}
@@ -32,7 +32,7 @@ public class Pause : MonoBehaviour {
 	{
 		second_menu.SetActive(false);
 		menu.SetActive(true);
-		control_img.SetActive(false);
+		//control_img.SetActive(false);
 	}
 	public void goto_menu()
 	{

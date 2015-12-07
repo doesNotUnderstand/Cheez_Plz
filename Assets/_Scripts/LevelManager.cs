@@ -39,6 +39,9 @@ public class LevelManager : MonoBehaviour {
             {
 				GameObject.Find("Mouse").GetComponent<playerController>().set_speed(speed);
                 player.position = new Vector3(startPoint.x, startPoint.y, 0);
+                player.eulerAngles = new Vector3(0, 0, 0);
+                player.localScale = new Vector3(0.3f, 0.3f, 1);
+                
 			
 				foreach(GameObject g in GameObject.FindGameObjectsWithTag("Trap"))
 				{
@@ -46,7 +49,7 @@ public class LevelManager : MonoBehaviour {
 					g.GetComponent<SpriteRenderer>().enabled = true;
 				}
 				
-                playerScript.anim.SetBool("MouseFell", false);
+                playerScript.anim.SetBool("MouseFell", false);                
                 moveToSpawn = false;
                 playerScript.allowMovement(true);
             }

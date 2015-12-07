@@ -4324,6 +4324,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11403628, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+      propertyPath: minimap
+      value: 
+      objectReference: {fileID: 2224884}
+    - target: {fileID: 22394254, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1951344279}
+    - target: {fileID: 22351566, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1951344279}
+    - target: {fileID: 22394254, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1396608093
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
   m_IsPrefabParent: 0

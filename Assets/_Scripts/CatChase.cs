@@ -81,10 +81,10 @@ public class CatChase : MonoBehaviour {
     {
         if (catCanMove) {
             if (inVisibleRange() &&
-                !playerScript.playerIsCrouching() || !alreadyChasing)
+                (!playerScript.playerIsCrouching() || !alreadyChasing))
             {
                 if (!DEBUG)
-                    Debug.Log("Chasing player");
+                    Debug.Log("Chasing player. In Range? " + inVisibleRange());
                 chasePlayer();
             }
             else if (!patrol)
@@ -137,9 +137,13 @@ public class CatChase : MonoBehaviour {
 
     void chasePlayer()
     {
-        alreadyChasing = true;
-        agent.SetDestination(new Vector2(playerTransform.position.x,
-                                         playerTransform.position.y));        
+        // First check if the player was killed by a pit.
+        if (!playerScript.getPlayerDied())
+        {
+            alreadyChasing = true;
+            agent.SetDestination(new Vector2(playerTransform.position.x,
+                                             playerTransform.position.y));
+        }
     }
 
     IEnumerator waitThenReturn()

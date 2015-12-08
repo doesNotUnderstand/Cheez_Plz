@@ -1563,6 +1563,19 @@ MonoBehaviour:
   invertPolygon: 1
   shapeType: 1
   extraOffset: 0
+--- !u!61 &425983438
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425983436}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &437383457
 Prefab:
   m_ObjectHideFlags: 0

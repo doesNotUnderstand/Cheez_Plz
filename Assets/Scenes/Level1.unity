@@ -198,6 +198,33 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 152588, guid: e970e54cb9461b646a4e453d5f2fdcfa, type: 2}
   m_PrefabInternal: {fileID: 624438148}
+--- !u!61 &117746939
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117746938}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
+--- !u!114 &117746940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117746938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
 --- !u!82 &117746942
 AudioSource:
   m_ObjectHideFlags: 0
@@ -610,6 +637,8 @@ GameObject:
   - 212: {fileID: 347051641}
   - 61: {fileID: 347051640}
   - 114: {fileID: 347051639}
+  - 114: {fileID: 347051642}
+  - 61: {fileID: 347051643}
   m_Layer: 0
   m_Name: Box5
   m_TagString: Box
@@ -650,7 +679,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 347051637}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -684,6 +713,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &347051642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347051637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &347051643
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 347051637}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &392591778
 Prefab:
   m_ObjectHideFlags: 0
@@ -1167,6 +1223,8 @@ GameObject:
   - 212: {fileID: 590420465}
   - 61: {fileID: 590420464}
   - 114: {fileID: 590420463}
+  - 114: {fileID: 590420466}
+  - 61: {fileID: 590420467}
   m_Layer: 0
   m_Name: Box3
   m_TagString: Box
@@ -1207,7 +1265,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 590420461}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -1241,6 +1299,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &590420466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590420461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &590420467
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590420461}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &624438148
 Prefab:
   m_ObjectHideFlags: 0
@@ -1368,6 +1453,8 @@ GameObject:
   - 212: {fileID: 684070297}
   - 61: {fileID: 684070296}
   - 114: {fileID: 684070295}
+  - 114: {fileID: 684070298}
+  - 61: {fileID: 684070299}
   m_Layer: 0
   m_Name: Box7
   m_TagString: Box
@@ -1408,7 +1495,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 684070293}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -1442,6 +1529,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &684070298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684070293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &684070299
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684070293}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &692859358
 Prefab:
   m_ObjectHideFlags: 0
@@ -1623,6 +1737,33 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 152588, guid: e970e54cb9461b646a4e453d5f2fdcfa, type: 2}
   m_PrefabInternal: {fileID: 1093670294}
+--- !u!61 &709944597
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709944596}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
+--- !u!114 &709944598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709944596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
 --- !u!82 &709944600
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2061,6 +2202,8 @@ GameObject:
   - 212: {fileID: 876596241}
   - 61: {fileID: 876596240}
   - 114: {fileID: 876596239}
+  - 114: {fileID: 876596243}
+  - 61: {fileID: 876596244}
   m_Layer: 0
   m_Name: Box2
   m_TagString: Box
@@ -2089,7 +2232,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 876596238}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -2135,6 +2278,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 894299472}
   m_RootOrder: 1
+--- !u!114 &876596243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876596238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &876596244
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876596238}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1 &894299471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2392,8 @@ GameObject:
   - 212: {fileID: 1042991894}
   - 61: {fileID: 1042991893}
   - 114: {fileID: 1042991892}
+  - 114: {fileID: 1042991895}
+  - 61: {fileID: 1042991896}
   m_Layer: 0
   m_Name: Box1
   m_TagString: Box
@@ -2262,7 +2434,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1042991890}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -2296,6 +2468,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1042991895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042991890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &1042991896
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042991890}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &1045708006
 Prefab:
   m_ObjectHideFlags: 0
@@ -2445,9 +2644,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
-  navObstacles: []
+  navObstacles:
+  - {fileID: 590420466}
+  - {fileID: 1042991895}
+  - {fileID: 347051642}
+  - {fileID: 684070298}
+  - {fileID: 1104910161}
+  - {fileID: 876596243}
+  - {fileID: 1882112995}
+  - {fileID: 709944598}
+  - {fileID: 1294759769}
+  - {fileID: 117746940}
+  - {fileID: 1373855786}
   inflateRadius: .100000001
-  regenerateFlag: 0
+  regenerateFlag: 1
 --- !u!4 &1070481173
 Transform:
   m_ObjectHideFlags: 0
@@ -2545,6 +2755,8 @@ GameObject:
   - 212: {fileID: 1104910160}
   - 61: {fileID: 1104910159}
   - 114: {fileID: 1104910158}
+  - 114: {fileID: 1104910161}
+  - 61: {fileID: 1104910162}
   m_Layer: 0
   m_Name: Box6
   m_TagString: Box
@@ -2573,7 +2785,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1104910157}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -2607,6 +2819,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1104910161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104910157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &1104910162
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104910157}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &1114619673
 Prefab:
   m_ObjectHideFlags: 0
@@ -3319,6 +3558,33 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 152588, guid: e970e54cb9461b646a4e453d5f2fdcfa, type: 2}
   m_PrefabInternal: {fileID: 444699386}
+--- !u!61 &1294759768
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294759767}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
+--- !u!114 &1294759769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1294759767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
 --- !u!82 &1294759771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3496,6 +3762,33 @@ AudioSource:
 GameObject:
   m_PrefabParentObject: {fileID: 152588, guid: e970e54cb9461b646a4e453d5f2fdcfa, type: 2}
   m_PrefabInternal: {fileID: 737534104}
+--- !u!61 &1373855785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373855784}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
+--- !u!114 &1373855786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373855784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
 --- !u!82 &1373855788
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4539,6 +4832,8 @@ GameObject:
   - 212: {fileID: 1882112994}
   - 61: {fileID: 1882112993}
   - 114: {fileID: 1882112992}
+  - 114: {fileID: 1882112995}
+  - 61: {fileID: 1882112996}
   m_Layer: 0
   m_Name: Box4
   m_TagString: Box
@@ -4579,7 +4874,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1882112990}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -.0410995483, y: -.0955572128}
   serializedVersion: 2
@@ -4613,6 +4908,33 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf9084666c72840cab5d18fd4c82ca15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1882112995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882112990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4f7f33d8fc7c0419b2308165807ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertPolygon: 1
+  shapeType: 1
+  extraOffset: 0
+--- !u!61 &1882112996
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882112990}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0410995483, y: -.0955572128}
+  serializedVersion: 2
+  m_Size: {x: 3.39674282, y: 3.09674311}
 --- !u!1001 &1932573256
 Prefab:
   m_ObjectHideFlags: 0

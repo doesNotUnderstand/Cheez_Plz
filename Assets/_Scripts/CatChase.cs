@@ -28,10 +28,9 @@ public class CatChase : MonoBehaviour {
     private GameObject smallCollider;
     private PolyNavAgent polyNav;
 
-    public Vector3 centerPoint; // The point from which the distance is calculated
+    // public Vector3 centerPoint; // The point from which the distance is calculated
     public float catSpeed; // The cat's speed
-    public float range = 0.0f; // The set distance to chase the mouse
-    public float catchRange = 0.0f; // The range where the cat catches the mouse
+    public float range = 0.0f; // The set distance to chase the mouse    
     public EventText textBox; // In case the cat needs to display a textBox
     Transform catTransform;
     bool catCanMove = true;
@@ -82,9 +81,9 @@ public class CatChase : MonoBehaviour {
     {
         if (catCanMove) {
             if (inVisibleRange() &&
-                (!playerScript.playerIsCrouching() || !alreadyChasing))
+                !playerScript.playerIsCrouching() || !alreadyChasing)
             {
-                if (DEBUG)
+                if (!DEBUG)
                     Debug.Log("Chasing player");
                 chasePlayer();
             }
@@ -151,6 +150,7 @@ public class CatChase : MonoBehaviour {
 
     void playerDeath()
     {
+        Debug.Log("Mouse/Player killed.");
         playerScript.setPlayerDied(true);
         alreadyChasing = catCanMove = false;
         playerScript.anim.SetBool("MouseFell", true);
@@ -179,22 +179,11 @@ public class CatChase : MonoBehaviour {
                                 catTransform.position) <= range;
     }
 
-    bool inKillRange()
-    {
-        bool inRange = Vector3.Distance(playerTransform.position,
-                                        catTransform.position) <= catchRange;
-
-        if (DEBUG)
-            Debug.Log("Is Mouse in Range? " + inRange);
-
-        return inRange;
-    }
-
-
     #region == Collision Delegates ==
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        playerDeath();
+        if (collisionInfo.collider.name.Equals("Mouse"))
+            playerDeath();
     }
     #endregion
 

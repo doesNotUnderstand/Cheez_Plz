@@ -28,7 +28,7 @@ public class CatChase : MonoBehaviour {
     private GameObject smallCollider;
     private PolyNavAgent polyNav;
 
-    public Vector3 centerPoint; // The point from which the distance is calculated
+    // public Vector3 centerPoint; // The point from which the distance is calculated
     public float catSpeed; // The cat's speed
     public float range = 0.0f; // The set distance to chase the mouse    
     public EventText textBox; // In case the cat needs to display a textBox
@@ -83,7 +83,7 @@ public class CatChase : MonoBehaviour {
             if (inVisibleRange() &&
                 !playerScript.playerIsCrouching() || !alreadyChasing)
             {
-                if (DEBUG)
+                if (!DEBUG)
                     Debug.Log("Chasing player");
                 chasePlayer();
             }
@@ -150,6 +150,7 @@ public class CatChase : MonoBehaviour {
 
     void playerDeath()
     {
+        Debug.Log("Mouse/Player killed.");
         playerScript.setPlayerDied(true);
         alreadyChasing = catCanMove = false;
         playerScript.anim.SetBool("MouseFell", true);
@@ -181,7 +182,8 @@ public class CatChase : MonoBehaviour {
     #region == Collision Delegates ==
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        playerDeath();
+        if (collisionInfo.collider.name.Equals("Mouse"))
+            playerDeath();
     }
     #endregion
 

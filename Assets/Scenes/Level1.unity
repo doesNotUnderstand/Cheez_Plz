@@ -147,7 +147,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11499760, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: speed
-      value: .75
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
@@ -357,7 +357,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21269736, guid: e1cdd73aca5334f2e8d8c002327fb82d, type: 2}
       propertyPath: m_SortingLayerID
-      value: -1964388517
+      value: -105159775
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1cdd73aca5334f2e8d8c002327fb82d, type: 2}
@@ -760,7 +760,7 @@ MonoBehaviour:
   dimRenderer: {fileID: 1171569482}
   levelComplete: {fileID: 2032663242}
   minimap: {fileID: 2224884}
-  scoreMenu: {fileID: 0}
+  scoreMenu: {fileID: 1932573257}
   timerScript: {fileID: 1951344282}
   cheeseRating: {fileID: 21300000, guid: ff9c00ca3b86b134891d47223ab0c25d, type: 3}
   tutorialRecord: 3c0000005000000064000000
@@ -769,6 +769,7 @@ MonoBehaviour:
   dimLights: 0
   menuDelay: 1
   level: 1
+  nextLevel: CutScene
 --- !u!60 &428298560
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1948,7 +1949,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f32a02f306f67d64482e5fd06bd3846d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3241,6 +3242,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 1281642601
       objectReference: {fileID: 0}
+    - target: {fileID: 199968, guid: 8d0bb05bf988743c892cb3f8bde1cf31, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d0bb05bf988743c892cb3f8bde1cf31, type: 2}
   m_IsPrefabParent: 0
@@ -3572,9 +3577,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b434c64efdd9dad4e930abe988784cac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .131999999
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3644,7 +3649,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14e1bb60741129f4dac29b2fc314345f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .182999998
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3714,7 +3719,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9b5f4ca0fc3129438d62a62370e0708, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .753000021
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4343,6 +4348,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1932573257 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 113042, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+  m_PrefabInternal: {fileID: 1932573256}
 --- !u!1 &1951344275
 GameObject:
   m_ObjectHideFlags: 0

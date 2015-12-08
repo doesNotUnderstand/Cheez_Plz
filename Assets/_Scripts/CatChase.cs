@@ -154,7 +154,7 @@ public class CatChase : MonoBehaviour {
         playerScript.setPlayerDied(true);
         alreadyChasing = catCanMove = false;
         playerScript.anim.SetBool("MouseFell", true);
-        playerScript.allowMovement(false);
+        playerScript.allowMovement(false);        
 
         foreach (GameObject gObject in GameObject.FindGameObjectsWithTag("Ghost"))
         {

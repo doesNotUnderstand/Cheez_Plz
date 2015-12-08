@@ -176,7 +176,9 @@ public class playerController : MonoBehaviour {
     public void setPlayerDied(bool died)
     {
         if (!die.isPlaying)
-        die.Play();
+            die.Play();
+        if (die)
+            isCarryingCheese = false;
         playerDied = died;
     }
 
@@ -244,7 +246,7 @@ public class playerController : MonoBehaviour {
         playerMoveLeft = true;
         if (!walk.isPlaying && !isCrouching && !carryingBox)
         {
-            walk.Play();
+            //walk.Play();
         }
         else if (!push.isPlaying && carryingBox)
         {
@@ -258,7 +260,7 @@ public class playerController : MonoBehaviour {
         playerMoveRight = true;
         if (!walk.isPlaying && !isCrouching && !carryingBox)
         {
-            walk.Play();
+            //walk.Play();
         }
         else if (!push.isPlaying && carryingBox)
         {
@@ -272,7 +274,7 @@ public class playerController : MonoBehaviour {
         playerMoveUp = true;
         if (!walk.isPlaying && !isCrouching && !carryingBox)
         {
-            walk.Play();
+            //walk.Play();
         }
         else if (!push.isPlaying && carryingBox)
         {
@@ -290,7 +292,7 @@ public class playerController : MonoBehaviour {
         playerMoveDown = true;
         if (!walk.isPlaying && !isCrouching && !carryingBox)
         {
-            walk.Play();
+            //walk.Play();
         }
         else if (!push.isPlaying && carryingBox)
         {

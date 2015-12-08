@@ -708,8 +708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
-  - {fileID: 1802070370}
   - {fileID: 425983437}
+  - {fileID: 1802070370}
   inflateRadius: .100000001
   regenerateFlag: 1
 --- !u!4 &239410473
@@ -840,7 +840,7 @@ Prefab:
     - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
       propertyPath: scoreMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194427111}
     - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
       propertyPath: cheeseRating
       value: 
@@ -862,6 +862,10 @@ Prefab:
       propertyPath: open
       value: 
       objectReference: {fileID: 105764079}
+    - target: {fileID: 11424736, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
+      propertyPath: nextLevel
+      value: Level1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6a82176731496c4f93652f92d4ebbc2, type: 2}
   m_IsPrefabParent: 0
@@ -1166,7 +1170,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9b5f4ca0fc3129438d62a62370e0708, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .762000024
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1236,7 +1240,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14e1bb60741129f4dac29b2fc314345f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .174999997
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1306,7 +1310,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b434c64efdd9dad4e930abe988784cac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .123999998
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2376,11 +2380,15 @@ Prefab:
       objectReference: {fileID: 1227695713}
     - target: {fileID: 119306, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1194427111 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 113042, guid: ca31e770ce63ced4096ac6209d96b789, type: 2}
+  m_PrefabInternal: {fileID: 1194427110}
 --- !u!1 &1227695713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125824, guid: d2ec253e33ab20b41986e463dd23bc1f, type: 2}
@@ -2752,6 +2760,10 @@ Prefab:
       propertyPath: textBox
       value: 
       objectReference: {fileID: 1181659722}
+    - target: {fileID: 5868438, guid: 778327e2ed16b4542b617a23c3580584, type: 2}
+      propertyPath: m_Radius
+      value: 2.18280339
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 778327e2ed16b4542b617a23c3580584, type: 2}
   m_IsPrefabParent: 0
@@ -2911,7 +2923,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: .0860000029
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128

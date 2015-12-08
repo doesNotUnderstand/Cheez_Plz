@@ -38,10 +38,7 @@ public class LevelManager : MonoBehaviour {
             if(moveToSpawn)
             {
 				GameObject.Find("Mouse").GetComponent<playerController>().set_speed(speed);
-                player.position = new Vector3(startPoint.x, startPoint.y, 0);
-                player.eulerAngles = new Vector3(0, 0, 0);
-                player.localScale = new Vector3(0.3f, 0.3f, 1);
-                
+                player.position = new Vector3(startPoint.x, startPoint.y, 0);                               
 			
 				foreach(GameObject g in GameObject.FindGameObjectsWithTag("Trap"))
 				{
@@ -92,6 +89,8 @@ public class LevelManager : MonoBehaviour {
 
         if(deathTimer > 2.0f)
         {
+            player.eulerAngles = new Vector3(0, 0, 0);
+            player.localScale = new Vector3(0.3f, 0.3f, 1);
             timerOn = false;
             deathTimer = 0.0f;
             moveToSpawn = true;

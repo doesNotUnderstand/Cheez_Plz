@@ -4,7 +4,7 @@ using System.Collections;
 
 public class sceneHolder
 {
-    static public int scene = 2;
+    static public int scene = 0;
     static public bool loadScene = false;
 }
 
@@ -44,7 +44,10 @@ public class cutSceneManager : MonoBehaviour {
         {
             if(Input.anyKeyDown)
             {
-                Application.LoadLevel(sceneHolder.scene+2);
+                if (sceneHolder.scene == 1)
+                    Application.LoadLevel(0);
+                else
+                    Application.LoadLevel(sceneHolder.scene+3);
             }
         }
 	}

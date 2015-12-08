@@ -15,7 +15,8 @@ public class winCollider : MonoBehaviour {
     public int[] secondRecord = { 300, 480, 600 };
     public bool dimLights = false;
     public int menuDelay;
-    public int level = 0;    
+    public int level = 0;
+    public string nextLevel;
 
     ScoreSystem scoreScript;
     int totalLevels = 3; // change this value if more levels are created
@@ -24,6 +25,7 @@ public class winCollider : MonoBehaviour {
     bool cheeseInside = false;
     bool saved = false;
     bool scoreShown = false;
+    bool winSoundPlayed = false;
 
     AudioSource audio;
 
@@ -41,8 +43,11 @@ public class winCollider : MonoBehaviour {
         if(playerInside && cheeseInside)
         {
             dimLights = true;
-            if (!audio.isPlaying)
-            audio.Play();                       
+            if (!winSoundPlayed && !audio.isPlaying)
+            {
+                audio.Play();
+                winSoundPlayed = true;
+            }            
         }
 
         if(scoreShown)
@@ -100,8 +105,23 @@ public class winCollider : MonoBehaviour {
     // To wait certain amount of seconds and return player to main menu
     IEnumerator returnToMenu()
     {
-        yield return new WaitForSeconds(menuDelay);		
-        Application.LoadLevel("Menu");
+        yield return new WaitForSeconds(menuDelay);
+		if(level == 1)
+        {
+            sceneHolder.loadScene = true;
+            sceneHolder.scene = 0;
+            Application.LoadLevel("CutScene");
+        }
+        else if(level == 2)
+        {
+            sceneHolder.loadScene = true;
+            sceneHolder.scene = 1;
+            Application.LoadLevel("CutScene");
+        }
+        else
+        {
+            Application.LoadLevel("Level1");
+        }            
     }
 
     // Change cheese images depending on cheese rating

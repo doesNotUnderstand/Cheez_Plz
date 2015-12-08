@@ -6,6 +6,7 @@ public class sceneHolder
 {
     static public int scene = 0;
     static public bool loadScene = false;
+    static public bool showCredits = false;
 }
 
 public class cutSceneManager : MonoBehaviour {
@@ -13,7 +14,8 @@ public class cutSceneManager : MonoBehaviour {
     public Sprite cutScene1;
     public Sprite cutScene2;    
     public SpriteRenderer renderer;
-    public float dimmingSpeed;    
+    public float dimmingSpeed;
+    public bool lastLevel;
 
     bool loadingScene = false;
     float dimAlpha = 0.0f; 
@@ -26,7 +28,7 @@ public class cutSceneManager : MonoBehaviour {
             loadingScene = true;
             renderer.color = new Color(1f, 1f, 1f, 0f);
             setScene(sceneHolder.scene);
-        }          
+        }        
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,11 @@ public class cutSceneManager : MonoBehaviour {
             if(Input.anyKeyDown)
             {
                 if (sceneHolder.scene == 1)
+                {
+                    sceneHolder.showCredits = true;
                     Application.LoadLevel(0);
+                    Application.LoadLevel(0);
+                }                    
                 else
                     Application.LoadLevel(sceneHolder.scene+3);
             }

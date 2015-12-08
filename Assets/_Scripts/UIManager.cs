@@ -26,6 +26,16 @@ public class UIManager : MonoBehaviour {
     public GameObject level2Button;
     public GameObject level3Button;
 
+    void Start()
+    {
+        if(sceneHolder.showCredits)
+        {
+            sceneHolder.showCredits = false;
+            ShowSettings();
+            ShowCredits();
+        }
+    }
+
 	public void StartGame()
     {
         Application.LoadLevel("Intro");

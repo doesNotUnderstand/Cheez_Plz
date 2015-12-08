@@ -2528,15 +2528,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416160, guid: 7ae195f2eb5621248afe4a8efde67769, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.27999997
+      value: 2.93000007
       objectReference: {fileID: 0}
     - target: {fileID: 11445806, guid: 7ae195f2eb5621248afe4a8efde67769, type: 2}
       propertyPath: startPoint.x
-      value: 1.29999995
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 11445806, guid: 7ae195f2eb5621248afe4a8efde67769, type: 2}
       propertyPath: startPoint.y
-      value: 3.27999997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11445806, guid: 7ae195f2eb5621248afe4a8efde67769, type: 2}
       propertyPath: cameraScript

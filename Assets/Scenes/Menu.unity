@@ -401,7 +401,7 @@ MonoBehaviour:
   credits: {fileID: 998046562}
   startScript: 0
   scrollSpeed: 15
-  textHeightLimit: -18
+  textHeightLimit: -6.5
   initialY: -28
 --- !u!1 &254307278
 GameObject:
@@ -1166,7 +1166,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -4.11763048, y: -1799.98792}
+  m_AnchoredPosition: {x: -4.11763048, y: -1683.52002}
   m_SizeDelta: {x: 599.999939, y: 3000}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &998046563
@@ -1205,13 +1205,47 @@ MonoBehaviour:
 
     Vincent Doan
 
-    Jimmy Wu
+    Leon Matsuki
 
-    Erwin Tung
+    Jimmy Wu
 
     Carlos Aguirre
 
-    Leon Matsuki'
+    Erwin Tung
+
+
+    Game Programming:
+
+    Leon Matsuki
+
+    Jimmy Wu
+
+    Carlos Aguirre
+
+    Vincent Doan
+
+
+    AI Programming:
+
+    Erwin Tung
+
+
+    Artists:
+
+    Carlos Aguirre
+
+    Leon Matsuki
+
+    Jimmy Wu
+
+
+    Audio Programming/SFX:
+
+    Vincent Doan
+
+    Carlos Aguirre
+
+'
 --- !u!222 &998046564
 CanvasRenderer:
   m_ObjectHideFlags: 0

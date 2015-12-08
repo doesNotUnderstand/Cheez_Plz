@@ -9816,6 +9816,50 @@ BoxCollider2D:
   m_Offset: {x: -.464799613, y: .0606737062}
   serializedVersion: 2
   m_Size: {x: 3.56599379, y: 3.47687769}
+--- !u!1 &2001917116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2001917118}
+  - 114: {fileID: 2001917117}
+  m_Layer: 0
+  m_Name: CutScenePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2001917117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001917116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6466ca20bcbb0e64a8ebb8ca5a38ead8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutScene1: {fileID: 0}
+  cutScene2: {fileID: 0}
+  renderer: {fileID: 0}
+  dimmingSpeed: 0
+  lastLevel: 1
+--- !u!4 &2001917118
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001917116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.620895326, y: .148727909, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &2051943356 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 138740, guid: 16ec38773fdff1945a4627d0d7aaa731, type: 2}

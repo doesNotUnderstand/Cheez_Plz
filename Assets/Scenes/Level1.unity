@@ -185,7 +185,7 @@ Prefab:
       objectReference: {fileID: 2081532685}
     - target: {fileID: 21247066, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: m_SortingLayerID
-      value: -1396608093
+      value: -105159775
       objectReference: {fileID: 0}
     - target: {fileID: 11499760, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: speed
@@ -3916,7 +3916,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 199968, guid: 8d0bb05bf988743c892cb3f8bde1cf31, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d0bb05bf988743c892cb3f8bde1cf31, type: 2}

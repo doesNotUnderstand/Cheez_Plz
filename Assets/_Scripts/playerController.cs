@@ -47,10 +47,10 @@ public class playerController : MonoBehaviour {
         playerMoveUp = playerMoveDown = playerMoveLeft = playerMoveRight = false;
         
         // Allow player to quit at any time
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        //if(Input.GetKey(KeyCode.Escape))
+        //{
+        //    Application.Quit();
+        //}
 
         if (Input.GetKey(KeyCode.R))
         {

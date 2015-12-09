@@ -846,6 +846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2b1eefbec214d70a82e777241ccb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialRecord: 3c0000005000000064000000
+  firstRecord: 78000000f00000002c010000
+  secondRecord: 2c010000e001000058020000
 --- !u!82 &620872257
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1790,6 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da032f340848644ba763c94f6ec69cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreScript: {fileID: 620872256}
   startButton: {fileID: 1452572122}
   continueButton: {fileID: 1988497908}
   settingsButton: {fileID: 1054596958}
@@ -1804,6 +1808,10 @@ MonoBehaviour:
   level1Button: {fileID: 1119306894}
   level2Button: {fileID: 1308308227}
   level3Button: {fileID: 1885773922}
+  cheeseZero: {fileID: 21300000, guid: 8efe4f0b1da205b46905d9440158efd6, type: 3}
+  cheeseOne: {fileID: 21300000, guid: 5519408b2b70f26468c617d74dd7d6b3, type: 3}
+  cheeseTwo: {fileID: 21300000, guid: 1ce3bb88bebc00b419113e79229e2cf1, type: 3}
+  cheeseThree: {fileID: 21300000, guid: b77f09a8dd789aa458a404615b586e1f, type: 3}
 --- !u!1 &1355280652
 GameObject:
   m_ObjectHideFlags: 0

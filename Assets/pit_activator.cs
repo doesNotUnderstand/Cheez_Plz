@@ -36,7 +36,7 @@ public class pit_activator : MonoBehaviour {
 	bool c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,
 		c24,c25,c26,c27,c28,c29,c30;
 	public float timer;
-	bool controller_on;
+	public bool controller_on;
 	bool puzzle_done;
 	void Start()
 	{
@@ -92,7 +92,47 @@ public class pit_activator : MonoBehaviour {
 			g.gameObject.GetComponent<pit_timer>().turn_off();
 		}
 	}
-	void Update()
+    public void reset_controller()
+    {
+        controller_on = false;
+        timer = 0;
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Controller"))
+        {
+            g.gameObject.GetComponent<pit_timer>().turn_on();
+        }
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        c1 = false;
+        c2 = false;
+        c3 = false;
+        c4 = false;
+        c5 = false;
+        c6 = false;
+        c7 = false;
+        c8 = false;
+        c9 = false;
+        c10 = false;
+        c11 = false;
+        c12 = false;
+        c13 = false;
+        c14 = false;
+        c15 = false;
+        c16 = false;
+        c17 = false;
+        c18 = false;
+        c19 = false;
+        c20 = false;
+        c21 = false;
+        c22 = false;
+        c23 = false;
+        c24 = false;
+        c25 = false;
+        c26 = false;
+        c27 = false;
+        c28 = false;
+        c29 = false;
+        c30 = false;
+    }
+    void Update()
 	{
 		if (controller_on) {
 			timer += 2.05f * Time.deltaTime;

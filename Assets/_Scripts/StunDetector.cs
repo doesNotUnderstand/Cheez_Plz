@@ -8,6 +8,9 @@ public class StunDetector : MonoBehaviour {
     AudioSource audio;
     bool isDestroy = false;
 
+    public mainCameraScript mainCamera;
+    public Texture stunTexture;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -29,6 +32,8 @@ public class StunDetector : MonoBehaviour {
             }
             float o_speed = c.gameObject.GetComponent<playerController>().get_speed();
             c.gameObject.GetComponent<playerController>().set_speed(0);
+            
+            mainCamera.addDrawingToScreen(new DrawScreen("", stunTexture, 30, true, true, stunTime));
             yield return new WaitForSeconds(stunTime);
             c.gameObject.GetComponent<playerController>().set_speed(o_speed);
             isDestroy = true;

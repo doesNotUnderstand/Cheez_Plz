@@ -227,7 +227,7 @@ Prefab:
       objectReference: {fileID: 2081532685}
     - target: {fileID: 21247066, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: m_SortingLayerID
-      value: -105159775
+      value: -1396608093
       objectReference: {fileID: 0}
     - target: {fileID: 11499760, guid: 3519d039e97d60448a55389fa76b091e, type: 2}
       propertyPath: speed
@@ -570,6 +570,14 @@ Prefab:
       propertyPath: m_Name
       value: gum (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11478866, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1951344282}
+    - target: {fileID: 11478866, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
+      propertyPath: bubbleTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: b671be7892e4b47c591f047112b457c1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
   m_IsPrefabParent: 0
@@ -2156,6 +2164,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11478866, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1951344282}
+    - target: {fileID: 11478866, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
+      propertyPath: bubbleTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: b671be7892e4b47c591f047112b457c1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d982450b326294f48b1ab383ea4350d6, type: 2}
   m_IsPrefabParent: 0
@@ -2729,17 +2745,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateOnUpdate: 1
   navObstacles:
-  - {fileID: 590420466}
-  - {fileID: 1042991895}
-  - {fileID: 347051642}
-  - {fileID: 684070298}
-  - {fileID: 1104910161}
+  - {fileID: 1373855786}
+  - {fileID: 1294759769}
   - {fileID: 876596243}
   - {fileID: 1882112995}
+  - {fileID: 1042991895}
+  - {fileID: 1104910161}
+  - {fileID: 347051642}
+  - {fileID: 684070298}
   - {fileID: 709944598}
-  - {fileID: 1294759769}
   - {fileID: 117746940}
-  - {fileID: 1373855786}
+  - {fileID: 590420466}
   inflateRadius: .100000001
   regenerateFlag: 1
 --- !u!4 &1070481173

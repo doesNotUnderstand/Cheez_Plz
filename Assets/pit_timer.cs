@@ -24,6 +24,12 @@ public class pit_timer : MonoBehaviour {
 		pit_invisible_time = 0;
 		pit.gameObject.SetActive(pit_active);
 	}
+    public void turn_on()
+    {
+        pit_active = true;
+        pit_invisible_time = 0;
+        pit.gameObject.SetActive(true);
+    }
 	public void disable()
 	{
 		pit.gameObject.SetActive (false);

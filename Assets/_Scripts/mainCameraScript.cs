@@ -27,6 +27,11 @@ public class DrawScreen{
     public int getWidthTexture() {
         return this.widthTexture;
     }
+
+    public void setWidthTexture (int newValue){
+        this.widthTexture = newValue;
+    }
+
     public string getName() {
         return this.name;
     }
@@ -107,7 +112,7 @@ public class mainCameraScript : MonoBehaviour {
 
     void OnGUI()
     {
-        int gapItems = 5, sizeItem = 50;
+        int gapItems = 5, sizeItem = 100;
 
         //Draw Time 
         numberItem_Timer = 0; sumWidth_Timer = 0;
@@ -190,6 +195,7 @@ public class mainCameraScript : MonoBehaviour {
     }
 
     private void drawTexture_right(DrawScreen newObject, int gapItems, int sizeItem){
+        newObject.setWidthTexture(sizeItem);
         numberItem_Right++;
         sumWidth_Right += newObject.getWidthTexture();
 
@@ -201,6 +207,7 @@ public class mainCameraScript : MonoBehaviour {
 
     private void drawTexture_left(DrawScreen newObject, int gapItems, int sizeItem)
     {
+        newObject.setWidthTexture(sizeItem);
         numberItem_Left++;
         int posX = sumWidth_Left + gapItems + gapItems * (numberItem_Left - 1);
 

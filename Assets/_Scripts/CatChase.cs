@@ -42,6 +42,8 @@ public class CatChase : MonoBehaviour {
     public Vector2 waypoint = new Vector2();
     Vector2 originWaypoint = new Vector2();
 
+    bool isLevel1 = false;
+
     System.Random rand = new System.Random();
 
     enum Direction { Down, Left, Up, Right };
@@ -59,6 +61,11 @@ public class CatChase : MonoBehaviour {
         polyNav.maxSpeed = catSpeed;
 
         changeColliders(anim.GetBool("Sleeping"));
+
+        if (Application.loadedLevel == 2)
+        {
+            isLevel1 = true;
+        }
 
         if (DEBUG)
             Debug.Log("Cat's current position is: " + catTransform.position.x + ", " + catTransform.position.y);
@@ -187,7 +194,14 @@ public class CatChase : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
         if (collisionInfo.collider.name.Equals("Mouse"))
+        {
             playerDeath();
+
+            if (isLevel1)
+            {
+                GameObject.Find("Cheese Ball").GetComponent<cheeseBall>().resetPosition();
+            }
+        }
     }
     #endregion
 

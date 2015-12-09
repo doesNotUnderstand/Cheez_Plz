@@ -35,7 +35,8 @@ public class CatChase : MonoBehaviour {
     Transform catTransform;
     bool catCanMove = true;
     bool alreadyChasing = false; // Used to prevent the cat from stopping pursuit when player crouches
-    Vector2 lastPosition;    
+    Vector2 lastPosition;
+    private AudioSource source, background;
 
     // These are used when the cats only "patrol" (i.e. they move from waypoint to waypoint).
     public bool patrol;
@@ -82,6 +83,9 @@ public class CatChase : MonoBehaviour {
         {            
             agent.SetDestination(waypoint);
         }
+
+        source = GetComponent<AudioSource>();
+        background = GameObject.Find("Main Camera").GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -96,6 +100,11 @@ public class CatChase : MonoBehaviour {
             }
             else if (!patrol)
             {
+                if (!background.isPlaying)
+                {
+                    source.Stop();
+                    background.Play();
+                }
                 agent.SetDestination(originWaypoint);
             }
         }
@@ -144,6 +153,11 @@ public class CatChase : MonoBehaviour {
 
     void chasePlayer()
     {
+        if (!source.isPlaying)
+        {
+            background.Stop();
+            source.Play();
+        }
         // First check if the player was killed by a pit.
         if (!playerScript.getPlayerDied())
         {

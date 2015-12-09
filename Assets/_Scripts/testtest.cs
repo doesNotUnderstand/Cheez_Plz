@@ -17,6 +17,6 @@ public class testtest : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        textBox.changeTimedText("!", 10.0f);
+       // textBox.changeTimedText("!", 10.0f);
     }
 }

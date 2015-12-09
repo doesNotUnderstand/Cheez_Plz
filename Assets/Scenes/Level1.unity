@@ -3411,7 +3411,7 @@ Transform:
   - {fileID: 1054230788}
   - {fileID: 95608332}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
 --- !u!114 &1269859480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3607,7 +3607,7 @@ GameObject:
   - 82: {fileID: 1271824913}
   - 114: {fileID: 1271824912}
   m_Layer: 0
-  m_Name: Cat (Key) (1)
+  m_Name: Cat (Boxes)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
